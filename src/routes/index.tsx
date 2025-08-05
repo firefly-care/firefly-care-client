@@ -1,0 +1,18 @@
+import { createBrowserRouter } from "react-router-dom";
+import Layout from "@components/Layout";
+import { Home, Login, Senior, System, Care, Manager } from "@pages/index";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "login", element: <Login /> },
+      { path: "senior", element: <Senior /> },
+      { path: "system", element: <System /> },
+      { path: "care", element: <Care /> },
+      { path: "manager", element: <Manager /> },
+    ],
+  },
+]);
