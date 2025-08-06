@@ -1,4 +1,3 @@
-# 🎉 Dongguk Spring Festival Web
 
 2025 청년 일경험 프로젝트 3조 반딧불이 돌봄 서비스 웹 프론트엔드 개발 레포지토리입니다.
 React + TypeScript + Zustand + TanStack Query 기반으로 제작되었습니다.
