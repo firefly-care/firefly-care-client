@@ -11,7 +11,9 @@ export const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
   position: relative;
-  flex: 1;
+  flex: 1 1 auto;
+  min-height: 0;
+  height: 100%;
 `;
 
 export const Title = styled.h1`
@@ -21,5 +23,9 @@ export const Title = styled.h1`
 `;
 
 export const ContentContainer = styled.div`
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
 `;

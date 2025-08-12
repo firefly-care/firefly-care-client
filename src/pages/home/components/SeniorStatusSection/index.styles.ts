@@ -2,7 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100%;
-  flex: 1;
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
 `;
 
 export const ColContainer = styled.div`
@@ -13,23 +16,25 @@ export const ColContainer = styled.div`
   min-height: 0;
   overflow: hidden;
   box-sizing: border-box;
-  height: 90%;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
 `;
 
 export const RowContainer = styled.div`
   display: flex;
-  flex-direction: row;
   gap: 10px;
   align-items: flex-start;
-  flex: 1;
   min-height: 0;
+  width: 100%;
   overflow: hidden;
 `;
 
 export const MapContainer = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[50]};
-  flex: 0 0 360px;
   height: 100%;
+  width: 350px;
+  flex-basis: auto;
 `;
 
 export const DongInfoList = styled.div`

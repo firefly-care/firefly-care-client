@@ -14,4 +14,6 @@ export const FilterContainer = styled.div`
   flex-direction: column;
   align-items: flex-end;
   gap: 10px;
+  flex: 1 1 auto;
+  min-height: 0;
 `;

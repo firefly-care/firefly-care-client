@@ -26,7 +26,6 @@ export const AppWrapper = styled.div`
 `;
 
 export const AppMain = styled.main<AppMainProps>`
-  flex: 1;
   min-height: 0;
   height: 100%;
   overflow-y: auto;
@@ -36,4 +35,6 @@ export const AppMain = styled.main<AppMainProps>`
   flex-direction: column;
   align-items: center;
   position: relative;
+  box-sizing: border-box;
+  flex: 1 1 auto;
 `;
