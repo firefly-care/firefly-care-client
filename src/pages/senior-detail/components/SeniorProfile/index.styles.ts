@@ -8,8 +8,7 @@ export const ProfileWrapper = styled.div`
 `;
 
 export const ProfileTitle = styled.div`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   margin-bottom: 18px;
 `;
 
@@ -30,8 +29,7 @@ export const GaugeSection = styled.div`
 `;
 
 export const GaugeLabelBig = styled.div`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   align-self: flex-start;
   margin-bottom: 12px;
 `;
@@ -96,8 +94,7 @@ export const InfoSection = styled.div`
 `;
 
 export const InfoTitle = styled.div`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   margin-bottom: 25px;
 `;
 
@@ -117,12 +114,10 @@ export const InfoItem = styled.li`
 
 export const InfoLabel = styled.span`
   color: #888;
-  font-size: ${({ theme }) => theme.fonts.Body1.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body1.fontWeight};
+  ${({ theme }) => theme.fonts.Body1};
 `;
 
 export const InfoValue = styled.span<{ strong?: boolean }>`
   color: ${({ theme }) => theme.colors.gray[900]};
-  font-size: ${({ theme }) => theme.fonts.Body1B.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body1B.fontWeight};
+  ${({ theme }) => theme.fonts.Body1B};
 `;

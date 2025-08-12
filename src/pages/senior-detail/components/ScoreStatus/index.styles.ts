@@ -8,8 +8,7 @@ export const ScoreSection = styled.div`
 `;
 
 export const ScoreSectionTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   color: ${({ theme }) => theme.colors.black};
   margin-bottom: 36px;
 `;
@@ -34,8 +33,7 @@ export const YAxisLabel = styled.div`
   position: absolute;
   left: 0;
   transform: translateY(50%);
-  font-size: ${({ theme }) => theme.fonts.Body2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2.fontWeight};
+  ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray[400]};
 `;
 
@@ -78,8 +76,7 @@ export const BarLabel = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: 150px;
-  font-size: ${({ theme }) => theme.fonts.Body2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2B.fontWeight};
+  ${({ theme }) => theme.fonts.Body2B};
   color: ${({ theme }) => theme.colors.gray[900]};
   text-align: center;
   white-space: pre-line;

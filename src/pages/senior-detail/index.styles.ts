@@ -70,8 +70,7 @@ export const EditBtn = styled.button`
   border-color: ${({ theme }) => theme.colors.gray[500]};
   border-radius: 5px;
   padding: 1px 13px;
-  font-size: ${({ theme }) => theme.fonts.Button2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Button2.fontWeight};
+  ${({ theme }) => theme.fonts.Button2};
   color: ${({ theme }) => theme.colors.gray[500]};
   cursor: pointer;
   transition: background 0.15s;
@@ -85,8 +84,7 @@ export const CancelBtn = styled.button`
   border: none;
   border-radius: 5px;
   padding: 6px 16px;
-  font-size: ${({ theme }) => theme.fonts.Button2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Button2.fontWeight};
+  ${({ theme }) => theme.fonts.Button2};
   color: ${({ theme }) => theme.colors.white};
   cursor: pointer;
   transition: background 0.15s;

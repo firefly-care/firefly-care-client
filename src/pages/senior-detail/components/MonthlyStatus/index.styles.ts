@@ -13,8 +13,7 @@ export const MonthlyHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   margin-bottom: 18px;
   gap: 12px;
   > div {
@@ -31,8 +30,7 @@ export const AddBtn = styled.button`
   border-color: ${({ theme }) => theme.colors.orange[600]};
   border-radius: 6px;
   padding: 6px 12px;
-  font-size: ${({ theme }) => theme.fonts.Button2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Button2.fontWeight};
+  ${({ theme }) => theme.fonts.Button2};
   cursor: pointer;
   margin-right: 4px;
   transition: background 0.15s;
@@ -48,8 +46,7 @@ export const ExcelBtn = styled.button`
   border-color: ${({ theme }) => theme.colors.gray[500]};
   border-radius: 5px;
   padding: 5px 8px 5px 8px;
-  font-size: ${({ theme }) => theme.fonts.Caption.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Caption.fontWeight};
+  ${({ theme }) => theme.fonts.Caption};
   display: flex;
   align-items: center;
   gap: 6px;
@@ -84,8 +81,7 @@ export const Arrow = styled.span`
 `;
 
 export const Month = styled.span`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
 `;
 
 export const StatusCards = styled.div`
@@ -123,15 +119,13 @@ export const StatusLabelText = styled.div`
 `;
 
 export const StatusLabelMain = styled.div`
-  font-size: ${({ theme }) => theme.fonts.Body2B.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2B.fontWeight};
+  ${({ theme }) => theme.fonts.Body2B};
   color: ${({ theme }) => theme.colors.black};
   margin-bottom: 4px;
 `;
 
 export const StatusLabelCount = styled.div`
-  font-size: ${({ theme }) => theme.fonts.Body1B.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body1B.fontWeight};
+  ${({ theme }) => theme.fonts.Body1B};
   color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -148,8 +142,7 @@ export const CareTh = styled.th<{ width?: string }>`
   padding: 12px 0;
   border-top: 1.8px solid #222;
   border-bottom: 1.8px solid #222;
-  font-size: ${({ theme }) => theme.fonts.Body1B.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body1B.fontWeight};
+  ${({ theme }) => theme.fonts.Body1B};
   color: ${({ theme }) => theme.colors.gray[900]};
   ${({ width }) => width && `width: ${width};`}
 `;
@@ -162,15 +155,13 @@ export const CareTd = styled.td`
   padding: 7px 0;
   text-align: center;
   background: #fff;
-  font-size: ${({ theme }) => theme.fonts.Body2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2.fontWeight};
+  ${({ theme }) => theme.fonts.Body2B};
   color: ${({ theme }) => theme.colors.gray[500]};
   height: 36px;
 `;
 
 export const CareDate = styled(CareTd)`
-  font-size: ${({ theme }) => theme.fonts.Body2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2.fontWeight};
+  ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray[500]};
   text-align: center;
 `;
@@ -179,8 +170,7 @@ export const CareTag = styled.span<{ color: string }>`
   background: ${({ color }) => color};
   border-radius: 6px;
   padding: 3px 7px 3px 7px;
-  font-size: ${({ theme }) => theme.fonts.Caption.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Caption.fontWeight};
+  ${({ theme }) => theme.fonts.Caption};
   color: ${({ theme }) => theme.colors.white};
   display: inline-flex;
   align-items: center;

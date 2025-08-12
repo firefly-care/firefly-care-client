@@ -21,8 +21,7 @@ export const TableRight = styled.div`
 `
 
 export const Latest = styled.span`
-  font-size: ${({ theme }) => theme.fonts.Body2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2.fontWeight};
+  ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray[500]};
   display: flex;
   align-items: center;
@@ -39,8 +38,7 @@ export const StyledTable = styled.table`
 
 export const TH = styled.th`
   background: #FAF6E7;
-  font-size: ${({ theme }) => theme.fonts.Body2B.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2B.fontWeight};
+  ${({ theme }) => theme.fonts.Body2B};
   padding: 5px 0;
   color: ${({ theme }) => theme.colors.gray[900]};
   text-align: center;
@@ -62,8 +60,7 @@ export const TR = styled.tr`
 
 export const TD = styled.td`
   padding: 7px 7px;
-  font-size: ${({ theme }) => theme.fonts.Body2.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Body2.fontWeight};
+  ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray[800]};
   background: #fff;
   text-align: center;
@@ -81,8 +78,7 @@ export const ExcelBtn = styled.button`
   border-color: ${({ theme }) => theme.colors.gray[500]};
   border-radius: 5px;
   padding: 5px 8px 5px 8px;
-  font-size: ${({ theme }) => theme.fonts.Caption.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Caption.fontWeight};
+  ${({ theme }) => theme.fonts.Caption};
   display: flex;
   align-items: center;
   gap: 6px;

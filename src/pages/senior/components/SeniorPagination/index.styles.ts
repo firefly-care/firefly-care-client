@@ -34,17 +34,14 @@ const sharedCell = css`
   transition: background .15s, color .15s;
 `;
 
-/* 숫자 셀 */
 export const PagerItem = styled.button<{ active?: boolean }>`
   ${sharedCell}
   min-width: 10px;
   border: 0;
   background: ${({ active, theme }) => (active ? theme.colors.orange[500] : "#fff")};
   color: ${({ active, theme }) => (active ? theme.colors.white : theme.colors.gray[500])};
-  font-size: ${({ theme }) => theme.fonts.Button1.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Button1.fontWeight};
+  ${({ theme }) => theme.fonts.Button1};
 
-  /* 이전 형제가 PagerItem이든 PagerArrow든 상관없이 모든 버튼과의 경계선 */
   & + button {
     box-shadow: inset 1px 0 0 ${({ theme }) => theme.colors.gray[200]};
   }
@@ -54,7 +51,6 @@ export const PagerItem = styled.button<{ active?: boolean }>`
   }
 `;
 
-/* 좌/우 화살표 */
 export const PagerArrow = styled.button<{ disabled?: boolean }>`
   ${sharedCell}
   width: 10px;
@@ -62,7 +58,6 @@ export const PagerArrow = styled.button<{ disabled?: boolean }>`
   color: ${({ theme }) => theme.colors.gray[500]};
   background: #fff;
 
-  /* 이전 형제가 PagerItem이든 PagerArrow든 모두 적용 */
   & + button {
     box-shadow: inset 1px 0 0 ${({ theme }) => theme.colors.gray[200]};
   }
@@ -90,8 +85,7 @@ export const RegisterBtn = styled.button`
   border: none;
   border-radius: 6px;
   padding: 8px 20px;
-  font-size: ${({ theme }) => theme.fonts.Button1.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Button1.fontWeight};
+  ${({ theme }) => theme.fonts.Button1};
   cursor: pointer;
   transition: background 0.15s;
   &:hover {

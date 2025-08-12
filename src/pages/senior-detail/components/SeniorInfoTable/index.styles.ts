@@ -22,8 +22,7 @@ export const TD = styled.td`
 
   &.label {
     background: ${({ theme }) => theme.colors.gray[50]};
-    font-size: ${({ theme }) => theme.fonts.Body1B.fontSize}px;
-    font-weight: ${({ theme }) => theme.fonts.Body1B.fontWeight};
+    ${({ theme }) => theme.fonts.Body1B};
     color: ${({ theme }) => theme.colors.black};
     text-align: center;
     width: 15%;
@@ -32,8 +31,7 @@ export const TD = styled.td`
 
   &.value {
     background: ${({ theme }) => theme.colors.white};
-    font-size: ${({ theme }) => theme.fonts.Body1.fontSize}px;
-    font-weight: ${({ theme }) => theme.fonts.Body1.fontWeight};
+    ${({ theme }) => theme.fonts.Body1};
     color: ${({ theme }) => theme.colors.gray[600]};
     text-align: left;
     width: 35%;

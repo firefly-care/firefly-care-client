@@ -16,8 +16,7 @@ export const ChartTitleRow = styled.div`
 `;
 
 export const ChartTitle = styled.h2`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   color: ${({ theme }) => theme.colors.gray[900]};
   align-self: center;
 `;
@@ -29,8 +28,7 @@ export const ChartHeader = styled.div`
 `;
 
 export const ChartDate = styled.span`
-  font-size: ${({ theme }) => theme.fonts.Head3.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head3.fontWeight};
+  ${({ theme }) => theme.fonts.Head3};
   color: ${({ theme }) => theme.colors.gray[900]};
 `;
 

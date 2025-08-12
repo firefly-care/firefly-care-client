@@ -6,8 +6,7 @@ export const Title = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: ${({ theme }) => theme.fonts.Head1.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Head1.fontWeight};
+  ${({ theme }) => theme.fonts.Head1};
   color: ${({ theme }) => theme.colors.black};
 `;
 
@@ -27,8 +26,7 @@ export const ExcelBtn = styled.button`
   border-color: ${({ theme }) => theme.colors.gray[500]};
   border-radius: 5px;
   padding: 5px 8px 5px 8px;
-  font-size: ${({ theme }) => theme.fonts.Caption.fontSize}px;
-  font-weight: ${({ theme }) => theme.fonts.Caption.fontWeight};
+  ${({ theme }) => theme.fonts.Caption};
   display: flex;
   align-items: center;
   gap: 6px;
