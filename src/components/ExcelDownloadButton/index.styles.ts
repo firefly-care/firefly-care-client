@@ -9,6 +9,9 @@ export const ButtonContainer = styled.button`
   flex-direction: row;
   align-items: center;
   gap: 4px;
+  &:hover {
+    background: ${({ theme }) => theme.colors.gray[50]};
+  }
 `;
 
 export const ButtonText = styled.span`

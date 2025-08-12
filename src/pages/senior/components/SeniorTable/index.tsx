@@ -3,6 +3,7 @@ import * as S from "./index.styles";
 import Sort from "@assets/icons/common/sort.svg?react";
 import BulbOn from "@assets/icons/common/bulb_on.svg?react";
 import BulbOff from "@assets/icons/common/bulb_off.svg?react";
+import { ExcelDownloadButton } from "@components/ExcelDownloadButton";
 
 interface SeniorData {
   no: number;
@@ -29,16 +30,17 @@ export const SeniorTable = ({ tableData }: SeniorTableProps) => {
     navigate(`/senior/${seniorId}`);
   };
 
+  const excelDownload = () => {};
+
   return (
     <>
       <S.TableInfoRow>
         <S.TableCount>전체 {tableData.length}건</S.TableCount>
         <S.TableRight>
-          <S.ExcelBtn>
-            <S.ExcelIcon />
-            엑셀 다운로드
-          </S.ExcelBtn>
-          <S.Latest>최신순 <Sort /></S.Latest>
+          <ExcelDownloadButton text="엑셀 다운로드" onClick={excelDownload} />
+          <S.Latest>
+            최신순 <Sort />
+          </S.Latest>
         </S.TableRight>
       </S.TableInfoRow>
       <S.StyledTable>
@@ -53,13 +55,27 @@ export const SeniorTable = ({ tableData }: SeniorTableProps) => {
             <S.TH>담당자</S.TH>
             <S.TH>담당자 연락처</S.TH>
             <S.TH colSpan={4}>
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+              >
                 <span>LED On/Off</span>
-                <div style={{ display: "flex", gap: 18, marginTop: 2}}>
-                  <span style={{ minWidth: 32, textAlign: "center" }}>안방</span>
-                  <span style={{ minWidth: 32, textAlign: "center" }}>거실</span>
-                  <span style={{ minWidth: 32, textAlign: "center" }}>주방</span>
-                  <span style={{ minWidth: 32, textAlign: "center" }}>화장실</span>
+                <div style={{ display: "flex", gap: 18, marginTop: 2 }}>
+                  <span style={{ minWidth: 32, textAlign: "center" }}>
+                    안방
+                  </span>
+                  <span style={{ minWidth: 32, textAlign: "center" }}>
+                    거실
+                  </span>
+                  <span style={{ minWidth: 32, textAlign: "center" }}>
+                    주방
+                  </span>
+                  <span style={{ minWidth: 32, textAlign: "center" }}>
+                    화장실
+                  </span>
                 </div>
               </div>
             </S.TH>
@@ -79,8 +95,15 @@ export const SeniorTable = ({ tableData }: SeniorTableProps) => {
               <S.TD>{row.manager}</S.TD>
               <S.TD>{row.managerContact}</S.TD>
               {row.led.map((on, i) => (
-                <S.TD key={i} style={{ textAlign: "center", padding: "7px 4px" }}>
-                  {on ? <BulbOn width={25} height={25} /> : <BulbOff width={18} height={18} style={{ opacity: 0.3 }} />}
+                <S.TD
+                  key={i}
+                  style={{ textAlign: "center", padding: "7px 4px" }}
+                >
+                  {on ? (
+                    <BulbOn width={25} height={25} />
+                  ) : (
+                    <BulbOff width={18} height={18} style={{ opacity: 0.3 }} />
+                  )}
                 </S.TD>
               ))}
               <S.TD>{row.lastActive}</S.TD>
