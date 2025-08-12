@@ -23,8 +23,8 @@ const PowerUsageChart = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const theme = useTheme();
 
-  const mainGreen = theme.colors.green?.[500] || "#27AE60";
-  const rangeGreen = theme.colors.green?.[200] || "#6FCF97";
+  const mainGreen = theme.colors.green?.[500];
+  const rangeGreen = theme.colors.green?.[200];
 
   function CustomDot(props: any) {
     const { cx, cy, payload, index } = props;
