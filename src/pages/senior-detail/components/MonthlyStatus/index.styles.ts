@@ -65,51 +65,12 @@ export const StatusCards = styled.div`
   margin-bottom: 15px;
 `;
 
-export const StatusCardBG = styled.div<{ color: string }>`
-  background: ${({ color }) => color};
-  border-radius: 15px;
-  padding: 10px;
-  flex: 1;
-  min-width: 120px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-`;
-
-export const StatusIconBG = styled.div<{ color: string }>`
-  background: ${({ color }) => color};
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.1rem;
-`;
-
-export const StatusLabelText = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-
-export const StatusLabelMain = styled.div`
-  ${({ theme }) => theme.fonts.Body2B};
-  color: ${({ theme }) => theme.colors.black};
-  margin-bottom: 4px;
-`;
-
-export const StatusLabelCount = styled.div`
-  ${({ theme }) => theme.fonts.Body1B};
-  color: ${({ theme }) => theme.colors.black};
-`;
-
 export const CareTable = styled.table`
-  width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   margin-top: 5px;
   font-size: 1.08rem;
+  width: 100%;
 `;
 
 export const CareTh = styled.th<{ width?: string }>`
@@ -124,35 +85,27 @@ export const CareTh = styled.th<{ width?: string }>`
 
 export const CareTr = styled.tr`
   border-bottom: 1.5px solid #222;
+  width: 100%;
 `;
 
 export const CareTd = styled.td`
-  padding: 7px 0;
-  text-align: center;
-  background: #fff;
-  ${({ theme }) => theme.fonts.Body2B};
-  color: ${({ theme }) => theme.colors.gray[500]};
   height: 36px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const CareDate = styled(CareTd)`
+export const CareResult = styled.td`
+  height: 36px;
+  text-align: center;
+  ${({ theme }) => theme.fonts.Body2};
+  color: ${({ theme }) => theme.colors.gray[500]};
+`;
+
+export const CareDate = styled.td`
   ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray[500]};
   text-align: center;
-`;
-
-export const CareTag = styled.span<{ color: string }>`
-  background: ${({ color }) => color};
-  border-radius: 6px;
-  padding: 3px 7px 3px 7px;
-  ${({ theme }) => theme.fonts.Caption};
-  color: ${({ theme }) => theme.colors.white};
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-`;
-
-export const CareTagIcon = styled.span`
-  font-size: 0.9rem;
-  margin-right: 2px;
+  height: 36px;
 `;

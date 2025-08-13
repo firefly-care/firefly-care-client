@@ -1,11 +1,16 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{ color: "green" | "orange" | "red" }>`
+export const Container = styled.div<{
+  color: "green" | "orange" | "red";
+  isRow: boolean;
+}>`
   border-radius: 12px;
   padding: 16px;
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ isRow }) => (isRow ? "row" : "column")};
   align-items: center;
+
+  justify-content: ${({ isRow }) => (isRow ? "space-between" : "none")};
   gap: 8px;
   width: 100%;
   background-color: ${({ theme, color }) => theme.colors[color][50]};
@@ -21,10 +26,10 @@ export const Circle = styled.div<{ color: "green" | "orange" | "red" }>`
   background-color: ${({ theme, color }) => theme.colors[color][500]};
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{ isRow: boolean }>`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: ${({ isRow }) => (isRow ? "flex-end" : "center")};
 `;
 
 export const Label = styled.label`
