@@ -7,7 +7,11 @@ interface SeniorPaginationProps {
   totalPages: number;
 }
 
-export const SeniorPagination = ({ page, setPage, totalPages }: SeniorPaginationProps) => {
+export const SeniorPagination = ({
+  page,
+  setPage,
+  totalPages,
+}: SeniorPaginationProps) => {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
   return (
@@ -40,7 +44,6 @@ export const SeniorPagination = ({ page, setPage, totalPages }: SeniorPagination
           ›
         </S.PagerArrow>
       </S.PaginationBar>
-
       <S.RegisterBtn>등록하기</S.RegisterBtn>
     </S.BottomArea>
   );

@@ -18,7 +18,7 @@ export const PaginationBar = styled.div`
   border-radius: 10px;
   overflow: hidden;
   background: #fff;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.02);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 `;
 
 const sharedCell = css`
@@ -31,15 +31,17 @@ const sharedCell = css`
   line-height: 1;
   user-select: none;
   cursor: pointer;
-  transition: background .15s, color .15s;
+  transition: background 0.15s, color 0.15s;
 `;
 
 export const PagerItem = styled.button<{ active?: boolean }>`
   ${sharedCell}
   min-width: 10px;
   border: 0;
-  background: ${({ active, theme }) => (active ? theme.colors.orange[500] : "#fff")};
-  color: ${({ active, theme }) => (active ? theme.colors.white : theme.colors.gray[500])};
+  background: ${({ active, theme }) =>
+    active ? theme.colors.orange[500] : "#fff"};
+  color: ${({ active, theme }) =>
+    active ? theme.colors.white : theme.colors.gray[500]};
   ${({ theme }) => theme.fonts.Button1};
 
   & + button {
@@ -47,7 +49,8 @@ export const PagerItem = styled.button<{ active?: boolean }>`
   }
 
   &:hover {
-    background: ${({ active, theme }) => (active ? theme.colors.orange[600] : theme.colors.gray[50])};
+    background: ${({ active, theme }) =>
+      active ? theme.colors.orange[600] : theme.colors.gray[50]};
   }
 `;
 

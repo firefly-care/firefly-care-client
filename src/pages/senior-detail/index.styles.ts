@@ -3,11 +3,11 @@ import styled from "styled-components";
 export const Container = styled.div`
   min-height: 100%;
   width: 100%;
-  font-family: 'Pretendard', sans-serif;
+  font-family: "Pretendard", sans-serif;
 `;
 
 export const Content = styled.div`
-  padding: 32px 40px;
+  padding: 30px;
 `;
 
 export const Section = styled.section`
@@ -80,7 +80,7 @@ export const EditBtn = styled.button`
 `;
 
 export const CancelBtn = styled.button`
-  background: ${({ theme }) => theme.colors.red[500]};;
+  background: ${({ theme }) => theme.colors.red[500]};
   border: none;
   border-radius: 5px;
   padding: 6px 16px;

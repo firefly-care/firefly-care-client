@@ -18,7 +18,7 @@ export const TableRight = styled.div`
   align-items: center;
   justify-content: center;
   gap: 10px;
-`
+`;
 
 export const Latest = styled.span`
   ${({ theme }) => theme.fonts.Body2};
@@ -37,7 +37,7 @@ export const StyledTable = styled.table`
 `;
 
 export const TH = styled.th`
-  background: #FAF6E7;
+  background: #faf6e7;
   ${({ theme }) => theme.fonts.Body2B};
   padding: 5px 0;
   color: ${({ theme }) => theme.colors.gray[900]};
@@ -69,29 +69,4 @@ export const TD = styled.td`
   border-color: ${({ theme }) => theme.colors.gray[100]};
   border-left: none;
   border-right: none;
-`;
-
-export const ExcelBtn = styled.button`
-  background: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.gray[500]};
-  border: 1.5px solid;
-  border-color: ${({ theme }) => theme.colors.gray[500]};
-  border-radius: 5px;
-  padding: 5px 8px 5px 8px;
-  ${({ theme }) => theme.fonts.Caption};
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: background 0.15s;
-  &:hover {
-    background: #f4f7fa;
-  }
-`;
-
-export const ExcelIcon = styled.span`
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="4" fill="%2334A853"/><path d="M6.5 7.5h7v1h-7v-1zm0 2h7v1h-7v-1zm0 2h4v1h-4v-1z" fill="white"/></svg>') no-repeat center / contain;
 `;

@@ -14,7 +14,7 @@ export const AppContainer = styled.div`
 
 export const AppWrapper = styled.div`
   width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -26,7 +26,6 @@ export const AppWrapper = styled.div`
 `;
 
 export const AppMain = styled.main<AppMainProps>`
-  flex: 1;
   min-height: 0;
   height: 100%;
   overflow-y: auto;
@@ -35,6 +34,7 @@ export const AppMain = styled.main<AppMainProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   position: relative;
+  box-sizing: border-box;
+  flex: 1 1 auto;
 `;
