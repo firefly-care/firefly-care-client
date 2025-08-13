@@ -4,20 +4,7 @@ import { MonthPicker } from "@/components/MonthPicker";
 import { useMonth } from "@/hooks/useMonth.ts";
 import { CareTypeBox } from "@/components/CareTypeBox";
 import { CareTypeTag } from "@/components/CareTypeTag";
-import type { CareType } from "@/types/care.ts";
-import type { GradeType } from "@/types/grade.ts";
-
-interface CareTableListDataType {
-  date: string;
-  tagLabel: CareType;
-  result: GradeType;
-}
-
-const careTableList: CareTableListDataType[] = [
-  { date: "2025.07.25", tagLabel: "전화돌봄", result: "정상" },
-  { date: "2025.03.16", tagLabel: "방문돌봄", result: "정상" },
-  { date: "2025.01.09", tagLabel: "긴급출동", result: "정상" },
-];
+import { careTableData } from "../../datas/datas.ts";
 
 const MonthlyStatus = () => {
   const { month, moveToPrevMonth, moveToNextMonth } = useMonth();
@@ -51,7 +38,7 @@ const MonthlyStatus = () => {
           </tr>
         </thead>
         <tbody>
-          {careTableList.map(({ date, tagLabel, result }) => (
+          {careTableData.map(({ date, tagLabel, result }) => (
             <S.CareTr key={date + tagLabel}>
               <S.CareDate width="28%">{date}</S.CareDate>
               <S.CareTd width="50%">

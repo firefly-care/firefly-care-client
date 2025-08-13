@@ -1,14 +1,7 @@
-import React from "react";
 import { useTheme } from "styled-components";
 import * as S from "./index.styles.ts";
 import type { DefaultTheme } from "styled-components";
-
-const barData = [
-  { label: "수면 장애 의심", value: 7 },
-  { label: "인지 저하 의심", value: 11 },
-  { label: "무기력증 의심", value: 15 },
-  { label: "장시간 미활동", value: 21 },
-];
+import { signGraphData } from "../../datas/datas.ts";
 
 const getRedColor = (theme: DefaultTheme, value: number) => {
   if (value <= 5) return theme.colors.red[100];
@@ -38,7 +31,7 @@ const ScoreStatus = () => {
             <S.GridLine key={v} style={{ bottom: `${(v / 25) * 100}%` }} />
           ))}
           {/* 바 */}
-          {barData.map((bar, idx) => (
+          {signGraphData.map((bar) => (
             <S.Bar
               key={bar.label}
               height={bar.value}
