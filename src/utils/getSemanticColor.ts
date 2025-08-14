@@ -1,19 +1,15 @@
 import type { DefaultTheme } from "styled-components";
-import type { GradeType } from "@/types/grade";
-import type { CareType } from "@/types/care";
+import type { StatusType } from "@/types/status";
 
-export function getSemanticColor(
-  theme: DefaultTheme,
-  grade: GradeType | CareType
-) {
+export function getSemanticColor(theme: DefaultTheme, grade: StatusType) {
   switch (grade) {
-    case "정상":
+    case "normal":
       return theme.colors.semantic.normal;
-    case "관심":
+    case "info":
       return theme.colors.semantic.info;
-    case "주의":
+    case "warning":
       return theme.colors.semantic.warning;
-    case "위험":
+    case "danger":
       return theme.colors.semantic.danger;
     default:
       return theme.colors.semantic.normal;

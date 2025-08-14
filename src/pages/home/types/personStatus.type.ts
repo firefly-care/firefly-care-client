@@ -1,11 +1,11 @@
-import type { GradeType } from "@/types/grade";
-import type { AbnormalSignType } from "@/types/sign";
+import type { StatusType } from "@/types/status";
+import type { AbnormalSignType } from "@/types/abnormalSign";
 
 export type PersonStatusType = {
   id: number;
   name: string;
   manager: string;
-  level: GradeType;
+  level: StatusType;
   lastActive: string;
   abnormalSign: AbnormalSignType;
 };

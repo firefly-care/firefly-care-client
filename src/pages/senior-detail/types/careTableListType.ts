@@ -1,8 +1,8 @@
 import type { CareType } from "@/types/care";
-import type { GradeType } from "@/types/grade";
+import type { StatusType } from "@/types/status";
 
 export interface CareTableListType {
   date: string;
   tagLabel: CareType;
-  result: GradeType;
+  result: StatusType;
 }

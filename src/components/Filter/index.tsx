@@ -3,14 +3,16 @@ import * as S from "./index.styles";
 
 interface FilterProps<T extends string> {
   selected: T;
-  options: T[];
+  options: readonly T[];
   onChange: (value: T) => void;
+  getLabel?: (value: T) => React.ReactNode;
 }
 
 export function Filter<T extends string>({
   selected,
   options,
   onChange,
+  getLabel,
 }: FilterProps<T>) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -33,7 +35,7 @@ export function Filter<T extends string>({
   return (
     <S.Container ref={dropdownRef}>
       <S.SelectBox onClick={() => setIsOpen((prev) => !prev)}>
-        <span>{selected}</span>
+        <span>{getLabel ? getLabel(selected) : selected}</span>
         <span className="arrow">▾</span>
       </S.SelectBox>
       {isOpen && (
@@ -47,7 +49,7 @@ export function Filter<T extends string>({
                 setIsOpen(false);
               }}
             >
-              {opt}
+              {getLabel ? getLabel(opt) : opt}
             </S.OptionItem>
           ))}
         </S.OptionList>

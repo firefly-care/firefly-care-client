@@ -1,4 +1,4 @@
-export type RegionStatusType = "위기 등급" | "마지막 활동" | "이상 징후";
+export type RegionStatusType = "status" | "lastActivity" | "abnormalSign";
 
 export type StatusDataType = {
   name: string;

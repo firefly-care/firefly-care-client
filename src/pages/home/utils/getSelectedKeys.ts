@@ -1,17 +1,17 @@
 import type { RegionStatusType } from "../types";
 import {
-  STATUS_KEYS,
-  LAST_ACTIVITY_KEYS,
-  ABNORMAL_SIGN_KEYS,
+  STATUS_TYPES,
+  LAST_ACTIVITY_TYPES,
+  ABNORMAL_SIGN_TYPES,
 } from "../constants";
 
 export const getSelectedKeys = (group: RegionStatusType) => {
   switch (group) {
-    case "위기 등급":
-      return STATUS_KEYS;
-    case "마지막 활동":
-      return LAST_ACTIVITY_KEYS;
+    case "status":
+      return STATUS_TYPES;
+    case "lastActivity":
+      return LAST_ACTIVITY_TYPES;
     default:
-      return ABNORMAL_SIGN_KEYS;
+      return ABNORMAL_SIGN_TYPES;
   }
 };

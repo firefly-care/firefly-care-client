@@ -1,4 +1,4 @@
-import type { AbnormalSignType } from "@/types/sign";
+import type { AbnormalSignType } from "@/types/abnormalSign";
 
 export interface SignGraphDataType {
   label: AbnormalSignType;

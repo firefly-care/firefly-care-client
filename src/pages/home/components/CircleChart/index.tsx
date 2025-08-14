@@ -3,54 +3,62 @@ import * as S from "./index.styles";
 import { PieChart, Pie, Cell, Sector, Label } from "recharts";
 import { useTheme, type DefaultTheme } from "styled-components";
 import type { PieSectorDataItem } from "recharts/types/polar/Pie";
-import type { GradeType } from "@/types/grade";
+import type { StatusType } from "@/types/status";
 import { getSemanticColor } from "@utils/getSemanticColor";
+import { STATUS_TYPE_LABELS } from "../../constants";
 
-type SliceDatum = { name: GradeType; value: number };
+type SliceDatum = { name: StatusType; value: number };
 
 const data: SliceDatum[] = [
-  { name: "정상", value: 39 },
-  { name: "관심", value: 35 },
-  { name: "주의", value: 19 },
-  { name: "위험", value: 28 },
+  { name: "normal", value: 39 },
+  { name: "info", value: 35 },
+  { name: "warning", value: 19 },
+  { name: "danger", value: 28 },
 ];
 
-const makeActiveShape = (theme: DefaultTheme) => (props: PieSectorDataItem) => {
-  const {
-    cx,
-    cy,
-    innerRadius,
-    outerRadius,
-    startAngle,
-    endAngle,
-    fill,
-    payload,
-    value,
-  } = props;
+const makeActiveShape =
+  (theme: DefaultTheme) =>
+  (props: PieSectorDataItem & { payload: SliceDatum }) => {
+    const {
+      cx,
+      cy,
+      innerRadius,
+      outerRadius,
+      startAngle,
+      endAngle,
+      fill,
+      payload,
+      value,
+    } = props;
 
-  const safeOuterRadius = outerRadius ?? 0;
-  const label = (payload as Partial<SliceDatum>)?.name ?? "";
+    const safeOuterRadius = outerRadius ?? 0;
+    const label: StatusType = payload.name;
 
-  return (
-    <>
-      <Sector
-        cx={cx}
-        cy={cy}
-        innerRadius={innerRadius}
-        outerRadius={safeOuterRadius + 8}
-        startAngle={startAngle}
-        endAngle={endAngle}
-        fill={fill}
-      />
-      <S.LabelText x={cx} y={cy} textAnchor="middle" dominantBaseline="middle">
-        <tspan x={cx} dy="-1.0em">
-          {label}
-        </tspan>
-        <tspan className="big" x={cx} dy="1.0em">{`${value ?? 0}명`}</tspan>
-      </S.LabelText>
-    </>
-  );
-};
+    return (
+      <>
+        <Sector
+          cx={cx}
+          cy={cy}
+          innerRadius={innerRadius}
+          outerRadius={safeOuterRadius + 8}
+          startAngle={startAngle}
+          endAngle={endAngle}
+          fill={fill}
+        />
+        <S.LabelText
+          x={cx}
+          y={cy}
+          textAnchor="middle"
+          dominantBaseline="middle"
+        >
+          <tspan x={cx} dy="-1.0em">
+            {STATUS_TYPE_LABELS[label]}
+          </tspan>
+          <tspan className="big" x={cx} dy="1.0em">{`${value ?? 0}명`}</tspan>
+        </S.LabelText>
+      </>
+    );
+  };
 
 export const CircleChart = () => {
   const theme = useTheme();
@@ -114,7 +122,7 @@ export const CircleChart = () => {
             <S.ColorBox
               style={{ backgroundColor: getSemanticColor(theme, entry.name) }}
             />
-            <S.LegendText>{entry.name}</S.LegendText>
+            <S.LegendText>{STATUS_TYPE_LABELS[entry.name]}</S.LegendText>
           </S.LegendItem>
         ))}
       </S.LegendContainer>
