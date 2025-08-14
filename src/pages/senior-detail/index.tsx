@@ -7,11 +7,17 @@ import {
   SeniorProfile,
 } from "./components";
 import Person from "@assets/icons/common/person.svg?react";
+import { Topbar } from "@/components/Topbar";
+import { useNavigate } from "react-router-dom";
 
 export const SeniorDetail = () => {
-
+  const navigate = useNavigate();
+  const backToList = () => {
+    navigate("/senior");
+  };
   return (
     <S.Container>
+      <Topbar title="대상자 관리" onClick={backToList} />
       <S.Content>
         <S.Section>
           <S.SectionTitleArea>
@@ -28,13 +34,13 @@ export const SeniorDetail = () => {
           <ScoreStatus />
           <PowerUsageChart />
         </S.BottomSection>
-        
+
         <S.TableTitleRow>
           <S.SectionTitleArea>
             <Person />
             <S.SectionTitle>대상자 정보</S.SectionTitle>
           </S.SectionTitleArea>
-          
+
           <S.ButtonGroup>
             <S.EditBtn>정보 수정</S.EditBtn>
             <S.CancelBtn>서비스 취소</S.CancelBtn>

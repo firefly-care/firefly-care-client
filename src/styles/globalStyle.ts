@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     width: 100%;
     height: 100%;
+        box-sizing: border-box;
     font-family: "Pretendard", sans-serif;
     background-color: ${({ theme }) => theme.colors.white};
     color: ${({ theme }) => theme.colors.black};

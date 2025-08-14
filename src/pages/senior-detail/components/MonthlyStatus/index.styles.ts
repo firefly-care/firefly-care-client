@@ -39,31 +39,6 @@ export const AddBtn = styled.button`
   }
 `;
 
-export const ExcelBtn = styled.button`
-  background: ${({ theme }) => theme.colors.white};
-  color: ${({ theme }) => theme.colors.gray[500]};
-  border: 1.5px solid;
-  border-color: ${({ theme }) => theme.colors.gray[500]};
-  border-radius: 5px;
-  padding: 5px 8px 5px 8px;
-  ${({ theme }) => theme.fonts.Caption};
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: background 0.15s;
-  &:hover {
-    background: #f4f7fa;
-  }
-`;
-
-export const ExcelIcon = styled.span`
-  display: inline-block;
-  width: 18px;
-  height: 18px;
-  background: url('data:image/svg+xml;utf8,<svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="20" rx="4" fill="%2334A853"/><path d="M6.5 7.5h7v1h-7v-1zm0 2h7v1h-7v-1zm0 2h4v1h-4v-1z" fill="white"/></svg>') no-repeat center/contain;
-`;
-
 export const MonthNav = styled.div`
   display: flex;
   align-items: center;
@@ -90,51 +65,12 @@ export const StatusCards = styled.div`
   margin-bottom: 15px;
 `;
 
-export const StatusCardBG = styled.div<{ color: string }>`
-  background: ${({ color }) => color};
-  border-radius: 15px;
-  padding: 10px;
-  flex: 1;
-  min-width: 120px;
-  display: flex;
-  align-items: center;
-  gap: 30px;
-`;
-
-export const StatusIconBG = styled.div<{ color: string }>`
-  background: ${({ color }) => color};
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2.1rem;
-`;
-
-export const StatusLabelText = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-
-export const StatusLabelMain = styled.div`
-  ${({ theme }) => theme.fonts.Body2B};
-  color: ${({ theme }) => theme.colors.black};
-  margin-bottom: 4px;
-`;
-
-export const StatusLabelCount = styled.div`
-  ${({ theme }) => theme.fonts.Body1B};
-  color: ${({ theme }) => theme.colors.black};
-`;
-
 export const CareTable = styled.table`
-  width: 100%;
   border-collapse: separate;
   border-spacing: 0;
   margin-top: 5px;
   font-size: 1.08rem;
+  width: 100%;
 `;
 
 export const CareTh = styled.th<{ width?: string }>`
@@ -149,35 +85,27 @@ export const CareTh = styled.th<{ width?: string }>`
 
 export const CareTr = styled.tr`
   border-bottom: 1.5px solid #222;
+  width: 100%;
 `;
 
 export const CareTd = styled.td`
-  padding: 7px 0;
-  text-align: center;
-  background: #fff;
-  ${({ theme }) => theme.fonts.Body2B};
-  color: ${({ theme }) => theme.colors.gray[500]};
   height: 36px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const CareDate = styled(CareTd)`
+export const CareResult = styled.td`
+  height: 36px;
+  text-align: center;
+  ${({ theme }) => theme.fonts.Body2};
+  color: ${({ theme }) => theme.colors.gray[500]};
+`;
+
+export const CareDate = styled.td`
   ${({ theme }) => theme.fonts.Body2};
   color: ${({ theme }) => theme.colors.gray[500]};
   text-align: center;
-`;
-
-export const CareTag = styled.span<{ color: string }>`
-  background: ${({ color }) => color};
-  border-radius: 6px;
-  padding: 3px 7px 3px 7px;
-  ${({ theme }) => theme.fonts.Caption};
-  color: ${({ theme }) => theme.colors.white};
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-`;
-
-export const CareTagIcon = styled.span`
-  font-size: 0.9rem;
-  margin-right: 2px;
+  height: 36px;
 `;

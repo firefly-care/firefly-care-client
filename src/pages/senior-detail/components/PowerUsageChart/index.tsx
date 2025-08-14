@@ -1,7 +1,17 @@
-import React, { useState } from "react";
-import { Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer, AreaChart, Area } from "recharts";
+import { useState } from "react";
+import {
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  ResponsiveContainer,
+  AreaChart,
+  Area,
+} from "recharts";
 import { useTheme } from "styled-components";
 import * as S from "./index.styles";
+import { DayPicker } from "@/components/DayPicker";
+import { useDay } from "@/hooks/useDay";
 
 const powerData = [
   { hour: 0, value: 18, min: 10, max: 30, anomaly: false },
@@ -22,6 +32,7 @@ const powerData = [
 const PowerUsageChart = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const theme = useTheme();
+  const { day, moveToPrevDay, moveToNextDay } = useDay();
 
   const mainGreen = theme.colors.green?.[500];
   const rangeGreen = theme.colors.green?.[200];
@@ -60,7 +71,7 @@ const PowerUsageChart = () => {
             pointerEvents: "none",
             opacity: show ? 1 : 0,
             transform: show ? "translateY(0px)" : "translateY(10px)",
-            transition: "opacity 0.25s, transform 0.25s"
+            transition: "opacity 0.25s, transform 0.25s",
           }}
         >
           <S.HoverLabelBox>
@@ -78,21 +89,31 @@ const PowerUsageChart = () => {
       <S.ChartTitleRow>
         <S.ChartTitle>일일 전력 사용량 그래프</S.ChartTitle>
         <S.ChartHeader>
-          <S.Arrow>{"<"}</S.Arrow>
-          <S.ChartDate>2025.07.01 (목)</S.ChartDate>
-          <S.Arrow>{">"}</S.Arrow>
+          <DayPicker
+            currentDay={day}
+            onPrev={moveToPrevDay}
+            onNext={moveToNextDay}
+          />
         </S.ChartHeader>
       </S.ChartTitleRow>
       <ResponsiveContainer width="100%" height={260}>
-        <AreaChart data={powerData} margin={{ left: 0, right: 10, top: 10, bottom: 0 }}>
+        <AreaChart
+          data={powerData}
+          margin={{ left: 0, right: 10, top: 10, bottom: 0 }}
+        >
           <defs>
             <linearGradient id="rangeGradient" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={rangeGreen} stopOpacity={0.15}/>
-              <stop offset="100%" stopColor={rangeGreen} stopOpacity={0.15}/>
+              <stop offset="0%" stopColor={rangeGreen} stopOpacity={0.15} />
+              <stop offset="100%" stopColor={rangeGreen} stopOpacity={0.15} />
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="hour" domain={[0, 24]} ticks={[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]} tick={{ fontSize: 12 }} />
+          <XAxis
+            dataKey="hour"
+            domain={[0, 24]}
+            ticks={[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24]}
+            tick={{ fontSize: 12 }}
+          />
           <YAxis domain={[0, 100]} tick={{ fontSize: 12 }} />
           <Area
             type="monotone"
