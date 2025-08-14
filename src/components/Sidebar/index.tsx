@@ -41,7 +41,7 @@ export default function Sidebar() {
           />
         ))}
       </S.MenuContainer>
-      <S.PlusButton>
+      <S.PlusButton onClick={() => navigate("/care-post")}>
         <PlusIcon width={24} height={24} />
         <S.PlusLabel>돌봄 등록</S.PlusLabel>
       </S.PlusButton>
