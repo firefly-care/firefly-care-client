@@ -13,6 +13,9 @@ export const Senior = () => {
       <SeniorFilter />
       <SeniorTable tableData={tableData} />
       <SeniorPagination page={page} setPage={setPage} totalPages={totalPages} />
+      <S.ButtonWrapper>
+        <S.RegisterButton>등록</S.RegisterButton>
+      </S.ButtonWrapper>
     </S.Wrapper>
   );
 };
