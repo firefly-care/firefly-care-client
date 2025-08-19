@@ -1,4 +1,4 @@
-import { GRADE_TYPE_LABELS } from "./grade";
+import { GRADE_TYPE_LABELS } from "@/constants/grade";
 import { LAST_ACTIVITY_TYPE_LABELS } from "./lastActivity";
 import { ABNORMAL_SIGN_TYPE_LABELS } from "./abnormalSign";
 
