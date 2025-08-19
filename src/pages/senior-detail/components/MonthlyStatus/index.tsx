@@ -4,9 +4,9 @@ import { MonthPicker } from "@/components/MonthPicker";
 import { useMonth } from "@/hooks/useMonth.ts";
 import { CareTypeBox } from "@/components/CareTypeBox";
 import { CareTypeTag } from "@/components/CareTypeTag";
-import { careTableData } from "../../datas/datas.ts";
+import { careTableData } from "../../datas/index.ts";
 
-const MonthlyStatus = () => {
+export const MonthlyStatus = () => {
   const { month, moveToPrevMonth, moveToNextMonth } = useMonth();
   return (
     <S.MonthlyStatus>
@@ -25,9 +25,9 @@ const MonthlyStatus = () => {
         />
       </S.MonthNav>
       <S.StatusCards>
-        <CareTypeBox type="전화돌봄" count={3} isRow={true} />
-        <CareTypeBox type="방문돌봄" count={3} isRow={true} />
-        <CareTypeBox type="긴급출동" count={3} isRow={true} />
+        <CareTypeBox type="call" count={3} isRow={true} />
+        <CareTypeBox type="visit" count={3} isRow={true} />
+        <CareTypeBox type="emergency" count={3} isRow={true} />
       </S.StatusCards>
       <S.CareTable>
         <thead>
@@ -52,5 +52,3 @@ const MonthlyStatus = () => {
     </S.MonthlyStatus>
   );
 };
-
-export default MonthlyStatus;

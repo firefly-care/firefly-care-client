@@ -3,11 +3,11 @@ import * as S from "./index.styles";
 import { PieChart, Pie, Cell, Sector, Label } from "recharts";
 import { useTheme, type DefaultTheme } from "styled-components";
 import type { PieSectorDataItem } from "recharts/types/polar/Pie";
-import type { StatusType } from "@/types/status";
+import type { GradeType } from "@/types/grade";
 import { getSemanticColor } from "@utils/getSemanticColor";
-import { STATUS_TYPE_LABELS } from "../../constants";
+import { GRADE_TYPE_LABELS } from "../../constants";
 
-type SliceDatum = { name: StatusType; value: number };
+type SliceDatum = { name: GradeType; value: number };
 
 const data: SliceDatum[] = [
   { name: "normal", value: 39 },
@@ -32,7 +32,7 @@ const makeActiveShape =
     } = props;
 
     const safeOuterRadius = outerRadius ?? 0;
-    const label: StatusType = payload.name;
+    const label: GradeType = payload.name;
 
     return (
       <>
@@ -52,7 +52,7 @@ const makeActiveShape =
           dominantBaseline="middle"
         >
           <tspan x={cx} dy="-1.0em">
-            {STATUS_TYPE_LABELS[label]}
+            {GRADE_TYPE_LABELS[label]}
           </tspan>
           <tspan className="big" x={cx} dy="1.0em">{`${value ?? 0}명`}</tspan>
         </S.LabelText>
@@ -122,7 +122,7 @@ export const CircleChart = () => {
             <S.ColorBox
               style={{ backgroundColor: getSemanticColor(theme, entry.name) }}
             />
-            <S.LegendText>{STATUS_TYPE_LABELS[entry.name]}</S.LegendText>
+            <S.LegendText>{GRADE_TYPE_LABELS[entry.name]}</S.LegendText>
           </S.LegendItem>
         ))}
       </S.LegendContainer>

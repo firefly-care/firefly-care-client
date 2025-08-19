@@ -1,4 +1,4 @@
-import type { AbnormalSignType } from "@/types/abnormalSign";
+import type { AbnormalSignType } from "../types";
 
 export const ABNORMAL_SIGN_TYPES = [
   "sleep_disorder",
@@ -7,7 +7,7 @@ export const ABNORMAL_SIGN_TYPES = [
   "inactivity",
 ] as const satisfies readonly AbnormalSignType[];
 
-export const ABNORMAL_SIGN_TYPE_LABEL: Record<AbnormalSignType, string> = {
+export const ABNORMAL_SIGN_TYPE_LABELS: Record<AbnormalSignType, string> = {
   sleep_disorder: "수면장애 의심",
   cognitive_decline: "인지저하 의심",
   lethargy: "무기력증 의심",

@@ -5,17 +5,17 @@ import type { Props as DefaultLegendProps } from "recharts/types/component/Defau
 import { useTheme } from "styled-components";
 import useMeasure from "react-use-measure";
 import { LABEL_MAPS } from "../../constants";
-import type { RegionStatusType } from "../../types";
+import type { RegionStatusGraphType } from "../../types";
 import type {
   LastActivityDataType,
   AbnormalSignDataType,
-  StatusDataType,
-} from "../../types/regionStatus.type";
+  GradeDataType,
+} from "../../types";
 import { getSelectedKeys } from "../../utils";
 
 type RegionStatusBarChartProps = {
-  data: LastActivityDataType[] | AbnormalSignDataType[] | StatusDataType[];
-  selectedKeyGroup: RegionStatusType;
+  data: LastActivityDataType[] | AbnormalSignDataType[] | GradeDataType[];
+  selectedKeyGroup: RegionStatusGraphType;
 };
 
 export const RegionStatusBarChart = ({

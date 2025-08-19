@@ -1,6 +1,7 @@
 import * as S from "./index.styles";
 import type { CareType } from "@/types/care";
 import { getCareTypeColor, getCareTypeIcon } from "@/utils/getCareTypeUtils";
+import { CARE_TYPE_LABELS } from "@/constants/care";
 
 interface CareTypeTagProps {
   type: CareType;
@@ -14,7 +15,7 @@ export const CareTypeTag = ({ type, size = "medium" }: CareTypeTagProps) => {
   return (
     <S.Container color={color} size={size}>
       {icon}
-      <S.Label>{type}</S.Label>
+      <S.Label>{CARE_TYPE_LABELS[type]}</S.Label>
     </S.Container>
   );
 };

@@ -1,14 +1,14 @@
-import type { RegionStatusType } from "../types";
+import type { RegionStatusGraphType } from "../types";
 import {
-  STATUS_TYPES,
+  GRADE_TYPES,
   LAST_ACTIVITY_TYPES,
   ABNORMAL_SIGN_TYPES,
 } from "../constants";
 
-export const getSelectedKeys = (group: RegionStatusType) => {
+export const getSelectedKeys = (group: RegionStatusGraphType) => {
   switch (group) {
     case "status":
-      return STATUS_TYPES;
+      return GRADE_TYPES;
     case "lastActivity":
       return LAST_ACTIVITY_TYPES;
     default:

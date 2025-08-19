@@ -1,7 +1,7 @@
 import type { DefaultTheme } from "styled-components";
-import type { StatusType } from "@/types/status";
+import type { GradeType } from "@/types/grade";
 
-export function getSemanticColor(theme: DefaultTheme, grade: StatusType) {
+export function getSemanticColor(theme: DefaultTheme, grade: GradeType) {
   switch (grade) {
     case "normal":
       return theme.colors.semantic.normal;

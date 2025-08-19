@@ -1,4 +1,4 @@
-import type { LastActivityType } from "../types/lastActivity";
+import type { LastActivityType } from "../types";
 
 export const LAST_ACTIVITY_TYPES = [
   "within_24h",

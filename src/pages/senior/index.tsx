@@ -1,6 +1,6 @@
 import { useState } from "react";
 import * as S from "./index.styles";
-import { tableData } from "./data";
+import { tableData } from "./datas";
 import { SeniorFilter, SeniorTable, SeniorPagination } from "./components";
 import { Topbar } from "@/components/Topbar";
 
