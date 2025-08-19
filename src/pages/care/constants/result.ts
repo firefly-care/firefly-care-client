@@ -1,4 +1,4 @@
-import type { CareResultType } from "../types";
+import type { CareResultType } from "@/types/care";
 
 export const CARE_RESULT_TYPES = [
   "confirmed",

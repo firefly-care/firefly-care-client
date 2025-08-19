@@ -1,6 +1,6 @@
 import { SearchForm } from "@/components/SearchForm";
 import type { CareType } from "@/types/care";
-import type { CareResultType } from "../../types";
+import type { CareResultType } from "@/types/care";
 import { CARE_TYPES, CARE_TYPE_LABELS } from "@/constants/care";
 import {
   CARE_RESULT_TYPES,

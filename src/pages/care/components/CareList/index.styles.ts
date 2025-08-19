@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import type { CareResultType } from "../../types";
+import type { CareResultType } from "@/types/care";
 
 export const Container = styled.div`
   width: 100%;

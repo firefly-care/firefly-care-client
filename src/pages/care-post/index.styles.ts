@@ -1,7 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Page = styled.div`
-  padding: 450px 24px 0;
+export const Container = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
 `;
 
 export const Card = styled.div`
@@ -9,7 +14,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray[200]};
   border-radius: 10px;
   overflow: hidden;
@@ -31,4 +36,12 @@ export const ButtonWrapper = styled.div`
   justify-content: flex-end;
   margin-top: 16px;
   margin-bottom: 30px;
+`;
+
+export const ContentContainer = styled.div`
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;

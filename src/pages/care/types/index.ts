@@ -1,7 +1,7 @@
 import type { CareType } from "@/types/care";
+import type { CareResultType } from "@/types/care";
 
 export type PageType = "calendar" | "list";
-export type CareResultType = "confirmed" | "absent";
 
 export type CareItemType = {
   id: string | number;
