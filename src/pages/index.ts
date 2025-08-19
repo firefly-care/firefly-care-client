@@ -5,3 +5,4 @@ export * from "./manager";
 export * from "./senior-detail";
 export * from "./senior";
 export * from "./system";
+export * from "./care-post";

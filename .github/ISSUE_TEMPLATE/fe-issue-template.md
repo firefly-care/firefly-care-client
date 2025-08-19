@@ -2,8 +2,8 @@
 name: FE Issue Template
 about: 작고 소중한 이슈 템플릿
 title: ''
-labels: "주형, \U0001F9F0 Chore"
-assignees: parkjoohyung0826
+labels: "✨ Feature"
+assignees: ''
 
 ---
 
