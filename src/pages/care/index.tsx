@@ -23,14 +23,24 @@ export const Care = () => {
       <S.ContentContainer>
         <CareSearchFilter />
         {pageState == "calendar" ? (
-          <S.ResultContainer>
-            <CalendarSection />
-            <CareList />
-          </S.ResultContainer>
+          <CalendarTypeContent />
         ) : (
-          <></>
+          <ListTypeContent />
         )}
       </S.ContentContainer>
     </S.Container>
   );
+};
+
+const CalendarTypeContent = () => {
+  return (
+    <S.ResultContainer>
+      <CalendarSection />
+      <CareList />
+    </S.ResultContainer>
+  );
+};
+
+const ListTypeContent = () => {
+  return <></>;
 };
