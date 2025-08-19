@@ -14,6 +14,7 @@ export const useMonth = () => {
 
   return {
     month: month.format("YYYY.MM"),
+    originMonth: month,
     moveToPrevMonth,
     moveToNextMonth,
     setMonth,
