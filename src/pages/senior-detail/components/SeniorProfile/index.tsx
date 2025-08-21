@@ -5,13 +5,17 @@ import { useTheme } from "styled-components";
 const infoList = [
   { label: "성별", value: "남" },
   { label: "생년월일", value: "1934.08.26" },
-  { label: "주소", value: "서울특별시 용산구 유엔빌리지길 136-10", strong: true },
+  {
+    label: "주소",
+    value: "서울특별시 용산구 유엔빌리지길 136-10",
+    strong: true,
+  },
   { label: "집 전화번호", value: "02-1223-5678" },
   { label: "휴대전화 번호", value: "010-9126-7103" },
   { label: "담당자", value: "한승우" },
 ];
 
-const gaugeValue = 78.5; // 위험 지수
+const gaugeValue = 78.5;
 const gaugeMax = 100;
 
 // 게이지용 데이터
@@ -20,13 +24,18 @@ const gaugeData = [
   { name: "rest", value: gaugeMax - gaugeValue },
 ];
 
-const SeniorProfile = () => {
+export const SeniorProfile = () => {
   const theme = useTheme();
   // 게이지 색상
   const gaugeColors = [theme.colors.red[400], theme.colors.gray[100]];
 
   // needle 좌표 계산
-  const cx = 140, cy = 150, outerRadius = 140, innerRadius = 90, startAngle = 180, endAngle = 0;
+  const cx = 140,
+    cy = 150,
+    outerRadius = 140,
+    innerRadius = 90,
+    startAngle = 180,
+    endAngle = 0;
 
   return (
     <S.ProfileWrapper>
@@ -48,7 +57,7 @@ const SeniorProfile = () => {
                 isAnimationActive={false}
                 stroke="none"
               >
-                {gaugeData.map((entry, idx) => (
+                {gaugeData.map((_, idx) => (
                   <Cell key={`cell-${idx}`} fill={gaugeColors[idx]} />
                 ))}
               </Pie>
@@ -89,5 +98,3 @@ const SeniorProfile = () => {
     </S.ProfileWrapper>
   );
 };
-
-export default SeniorProfile;

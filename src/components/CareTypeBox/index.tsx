@@ -1,6 +1,7 @@
 import * as S from "./index.styles";
 import type { CareType } from "@/types/care";
 import { getCareTypeColor, getCareTypeIcon } from "@/utils/getCareTypeUtils";
+import { CARE_TYPE_LABELS } from "@/constants/care";
 
 interface CareTypeBoxProps {
   type: CareType;
@@ -20,7 +21,7 @@ export const CareTypeBox = ({
     <S.Container color={color} isRow={isRow}>
       <S.Circle color={color}>{icon}</S.Circle>
       <S.Content isRow={isRow}>
-        <S.Label>{type}</S.Label>
+        <S.Label>{CARE_TYPE_LABELS[type]}</S.Label>
         <S.Number>{count}건</S.Number>
       </S.Content>
     </S.Container>

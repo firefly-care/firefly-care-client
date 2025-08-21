@@ -5,9 +5,9 @@ import CallIcon from "@assets/icons/common/call.svg?react";
 import type { CareType } from "@/types/care";
 
 export const COLOR_MAP: Record<CareType, "green" | "orange" | "red"> = {
-  전화돌봄: "green",
-  방문돌봄: "orange",
-  긴급출동: "red",
+  call: "green",
+  visit: "orange",
+  emergency: "red",
 };
 
 export const getCareTypeIcon = (
@@ -16,11 +16,11 @@ export const getCareTypeIcon = (
   height = 24
 ): React.ReactNode => {
   switch (type) {
-    case "전화돌봄":
+    case "call":
       return <CallIcon width={width} height={height} />;
-    case "방문돌봄":
+    case "visit":
       return <VisitIcon width={width} height={height} />;
-    case "긴급출동":
+    case "emergency":
       return <SirenIcon width={width} height={height} />;
     default:
       return null;

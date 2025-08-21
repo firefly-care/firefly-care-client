@@ -1,6 +1,7 @@
 import * as S from "./index.styles";
 import { personStatusData } from "../../datas";
 import type { PersonStatusType } from "../../types";
+import { ABNORMAL_SIGN_TYPE_LABELS, GRADE_TYPE_LABELS } from "../../constants";
 
 export const UserStatusTable = () => {
   return (
@@ -23,9 +24,13 @@ export const UserStatusTable = () => {
                 <td>{user.id}</td>
                 <td>{user.name}</td>
                 <td>{user.manager}</td>
-                <td>{user.level}</td>
+                <td>{GRADE_TYPE_LABELS[user.level]}</td>
                 <td>{user.lastActive}</td>
-                <td>{user.abnormalSign}</td>
+                <td>
+                  {user.abnormalSign
+                    ? ABNORMAL_SIGN_TYPE_LABELS[user.abnormalSign]
+                    : null}
+                </td>
               </tr>
             ))}
           </S.Tbody>

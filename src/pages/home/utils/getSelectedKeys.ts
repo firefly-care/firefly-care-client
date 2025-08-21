@@ -1,17 +1,17 @@
-import type { RegionStatusType } from "../types";
+import type { RegionStatusGraphType } from "../types";
 import {
-  STATUS_KEYS,
-  LAST_ACTIVITY_KEYS,
-  ABNORMAL_SIGN_KEYS,
+  GRADE_TYPES,
+  LAST_ACTIVITY_TYPES,
+  ABNORMAL_SIGN_TYPES,
 } from "../constants";
 
-export const getSelectedKeys = (group: RegionStatusType) => {
+export const getSelectedKeys = (group: RegionStatusGraphType) => {
   switch (group) {
-    case "위기 등급":
-      return STATUS_KEYS;
-    case "마지막 활동":
-      return LAST_ACTIVITY_KEYS;
+    case "status":
+      return GRADE_TYPES;
+    case "lastActivity":
+      return LAST_ACTIVITY_TYPES;
     default:
-      return ABNORMAL_SIGN_KEYS;
+      return ABNORMAL_SIGN_TYPES;
   }
 };

@@ -29,7 +29,7 @@ const powerData = [
   { hour: 24, value: 55, min: 35, max: 75, anomaly: false },
 ];
 
-const PowerUsageChart = () => {
+export const PowerUsageChart = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
   const theme = useTheme();
   const { day, moveToPrevDay, moveToNextDay } = useDay();
@@ -149,5 +149,3 @@ const PowerUsageChart = () => {
     </S.ChartSection>
   );
 };
-
-export default PowerUsageChart;

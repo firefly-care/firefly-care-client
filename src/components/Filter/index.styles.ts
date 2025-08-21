@@ -31,6 +31,7 @@ export const OptionList = styled.ul`
   border-radius: 4px;
   overflow-y: auto;
   min-width: max-content;
+  width: 100%;
 `;
 
 export const OptionItem = styled.li<{ selected: boolean }>`

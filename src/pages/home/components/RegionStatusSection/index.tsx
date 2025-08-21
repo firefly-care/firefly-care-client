@@ -3,16 +3,20 @@ import { BoxContainer } from "../BoxContainer";
 import { RegionStatusBarChart } from "../RegionStatusBarChart";
 import { Filter } from "@components/Filter";
 import { useFilter } from "@/hooks/useFilter";
-import type { RegionStatusType } from "../../types/regionStatus.type";
+import type { RegionStatusGraphType } from "../../types";
 import { regionStatusData } from "../../datas/regionStatus";
+import {
+  REGION_STATUS_GRAPH_TYPES,
+  REGION_STATUS_GRAPH_TYPE_LABELS,
+} from "../../constants";
 
-const getRegionStatusChartData = (type: RegionStatusType) => {
+const getRegionStatusChartData = (type: RegionStatusGraphType | "전체") => {
   switch (type) {
-    case "위기 등급":
+    case "status":
       return regionStatusData.statusGrade;
-    case "마지막 활동":
+    case "lastActivity":
       return regionStatusData.lastActivity;
-    case "이상 징후":
+    case "abnormalSign":
       return regionStatusData.abnormalSigns;
     default:
       return [];
@@ -20,17 +24,19 @@ const getRegionStatusChartData = (type: RegionStatusType) => {
 };
 
 export const RegionStatusSection = () => {
-  const { selected, setSelected } = useFilter<RegionStatusType>("위기 등급");
+  const { selected, setSelected } = useFilter<RegionStatusGraphType>("status");
+
   const chartData = getRegionStatusChartData(selected);
 
   return (
     <BoxContainer title="지역별 대상자 상태 현황">
       <S.Container>
         <S.FilterContainer>
-          <Filter<RegionStatusType>
+          <Filter<RegionStatusGraphType>
             selected={selected}
-            options={["위기 등급", "마지막 활동", "이상 징후"]}
+            options={REGION_STATUS_GRAPH_TYPES}
             onChange={setSelected}
+            getLabel={(value) => REGION_STATUS_GRAPH_TYPE_LABELS[value]}
           />
         </S.FilterContainer>
         <RegionStatusBarChart data={chartData} selectedKeyGroup={selected} />

@@ -1,7 +1,7 @@
 import { useTheme } from "styled-components";
 import * as S from "./index.styles.ts";
 import type { DefaultTheme } from "styled-components";
-import { signGraphData } from "../../datas/datas.ts";
+import { signGraphData } from "../../datas/index.ts";
 
 const getRedColor = (theme: DefaultTheme, value: number) => {
   if (value <= 5) return theme.colors.red[100];
@@ -11,7 +11,7 @@ const getRedColor = (theme: DefaultTheme, value: number) => {
   return theme.colors.red[500];
 };
 
-const ScoreStatus = () => {
+export const ScoreStatus = () => {
   const theme = useTheme();
 
   return (
@@ -45,5 +45,3 @@ const ScoreStatus = () => {
     </S.ScoreSection>
   );
 };
-
-export default ScoreStatus;

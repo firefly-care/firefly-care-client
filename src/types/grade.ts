@@ -1,1 +1,1 @@
-export type GradeType = "정상" | "관심" | "주의" | "위험";
+export type GradeType = "normal" | "info" | "warning" | "danger";

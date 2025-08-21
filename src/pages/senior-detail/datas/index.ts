@@ -1,9 +1,9 @@
-import type { CareTableListType } from "../types/careTableListType";
+import type { CareTableListType } from "../types";
 
 export const careTableData: CareTableListType[] = [
-  { date: "2025.07.25", tagLabel: "전화돌봄", result: "정상" },
-  { date: "2025.03.16", tagLabel: "방문돌봄", result: "정상" },
-  { date: "2025.01.09", tagLabel: "긴급출동", result: "정상" },
+  { date: "2025.07.25", tagLabel: "call", result: "normal" },
+  { date: "2025.03.16", tagLabel: "visit", result: "normal" },
+  { date: "2025.01.09", tagLabel: "emergency", result: "normal" },
 ];
 
 export const signGraphData = [

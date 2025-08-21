@@ -26,9 +26,9 @@ export const MonthlyStatusSection = () => {
           <NumberBox label="돌봄 합계" number={119} />
         </S.RowContainer>
         <S.CareTypeContainer>
-          <CareTypeBox type="전화돌봄" count={22} />
-          <CareTypeBox type="방문돌봄" count={134} />
-          <CareTypeBox type="긴급출동" count={45} />
+          <CareTypeBox type="call" count={22} />
+          <CareTypeBox type="visit" count={134} />
+          <CareTypeBox type="emergency" count={45} />
         </S.CareTypeContainer>
       </S.Container>
     </BoxContainer>
