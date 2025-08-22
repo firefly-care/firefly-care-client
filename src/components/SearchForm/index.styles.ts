@@ -131,26 +131,6 @@ export const SearchIconContainer = styled.span`
   color: ${({ theme }) => theme.colors.gray[400]};
 `;
 
-export const BlackButton = styled.button`
-  border-radius: 8px;
-  padding: 10px 20px;
-  gap: 4px;
-  display: flex;
-  border: 1.5px solid ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.fonts.Button1}
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.black};
-`;
-
-export const WhiteButton = styled.button`
-  border-radius: 8px;
-  padding: 10px 20px;
-  border: 1.5px solid ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.fonts.Button1}
-  color: ${({ theme }) => theme.colors.black};
-  background-color: ${({ theme }) => theme.colors.white};
-`;
-
 export const ButtonContainer = styled.div`
   display: flex;
   flex-direction: row;
