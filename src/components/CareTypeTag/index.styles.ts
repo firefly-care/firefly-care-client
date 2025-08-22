@@ -11,6 +11,7 @@ export const Container = styled.div<{
   justify-content: center;
   gap: 4px;
   width: fit-content;
+  margin: 0 auto;
   background-color: ${({ theme, color }) => theme.colors[color][500]};
 `;
 

@@ -10,6 +10,7 @@ export const careListData: CareItemType[] = [
     status: "absent",
     preview:
       "담당자가 직접 작성한 돌봄 내용의 한 줄 미리보기가 들어갑니다. 담당자가 직접 작성한 돌봄 내용의 한 줄 미...",
+    createdAt: "2025.07.07.(화)",
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ export const careListData: CareItemType[] = [
     status: "confirmed",
     preview:
       "담당자가 직접 작성한 돌봄 내용의 한 줄 미리보기가 들어갑니다. 담당자가 직접 작성한 돌봄 내용의 한 줄 미...",
+    createdAt: "2025.07.07.(화)",
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ export const careListData: CareItemType[] = [
     status: "confirmed",
     preview:
       "담당자가 직접 작성한 돌봄 내용의 한 줄 미리보기가 들어갑니다. 담당자가 직접 작성한 돌봄 내용의 한 줄 미...",
+    createdAt: "2025.07.07.(화)",
   },
   {
     id: 4,
@@ -40,5 +43,6 @@ export const careListData: CareItemType[] = [
     status: "confirmed",
     preview:
       "담당자가 직접 작성한 돌봄 내용의 한 줄 미리보기가 들어갑니다. 담당자가 직접 작성한 돌봄 내용의 한 줄 미...",
+    createdAt: "2025.07.07.(화)",
   },
 ];

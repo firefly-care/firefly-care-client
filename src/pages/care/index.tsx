@@ -7,6 +7,7 @@ import {
   CareSearchFilter,
   CalendarSection,
   CareList,
+  CareHistoryTable,
 } from "./components";
 import type { PageType } from "./types";
 
@@ -42,5 +43,9 @@ const CalendarTypeContent = () => {
 };
 
 const ListTypeContent = () => {
-  return <></>;
+  return (
+    <>
+      <CareHistoryTable onRowClick={() => {}} />
+    </>
+  );
 };
