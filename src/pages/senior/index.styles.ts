@@ -12,4 +12,7 @@ export const Wrapper = styled.div`
 export const ContentContainer = styled.div`
   width: 100%;
   padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;

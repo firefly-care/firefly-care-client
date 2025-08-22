@@ -2,10 +2,7 @@ import { SearchForm } from "@/components/SearchForm";
 import type { CareType } from "@/types/care";
 import type { CareResultType } from "@/types/care";
 import { CARE_TYPES, CARE_TYPE_LABELS } from "@/constants/care";
-import {
-  CARE_RESULT_TYPES,
-  CARE_RESULT_TYPE_LABELS,
-} from "../../constants/result";
+import { CARE_RESULT_TYPES, CARE_RESULT_TYPE_LABELS } from "@/constants/care";
 import { useState } from "react";
 
 export const CareSearchFilter = () => {

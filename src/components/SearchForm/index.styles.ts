@@ -9,7 +9,9 @@ export const Container = styled.form`
   display: grid;
   gap: 8px;
   position: relative;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: auto auto;
+  justify-content: start;
+  column-gap: 30px;
 `;
 
 export const FilterSectionContainer = styled.div`
@@ -17,6 +19,7 @@ export const FilterSectionContainer = styled.div`
   align-items: center;
   gap: 14px;
 `;
+
 export const Label = styled.label`
   width: 110px;
   ${({ theme }) => theme.fonts.Body1}

@@ -2,7 +2,7 @@ import * as S from "./index.styles";
 import { careListData } from "../../datas";
 import { CareTypeTag } from "@/components/CareTypeTag";
 import type { CareItemType } from "../../types";
-import { CARE_RESULT_TYPE_LABELS } from "../../constants/result";
+import { CARE_RESULT_TYPE_LABELS } from "@/constants/care";
 
 export const CareList = () => {
   return (

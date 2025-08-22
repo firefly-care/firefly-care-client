@@ -11,4 +11,5 @@ export type CareItemType = {
   type: CareType;
   status: CareResultType;
   preview: string;
+  createdAt: string;
 };

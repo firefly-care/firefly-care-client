@@ -1,7 +1,10 @@
 import { useState } from "react";
 import * as S from "./index.styles";
-import { tableData } from "./datas";
-import { SeniorFilter, SeniorTable, SeniorPagination } from "./components";
+import {
+  SeniorSearchFilter,
+  SeniorTable,
+  SeniorPagination,
+} from "./components";
 import { Topbar } from "@/components/Topbar";
 
 export const Senior = () => {
@@ -12,8 +15,8 @@ export const Senior = () => {
     <S.Wrapper>
       <Topbar title="대상자 관리" />
       <S.ContentContainer>
-        <SeniorFilter />
-        <SeniorTable tableData={tableData} />
+        <SeniorSearchFilter />
+        <SeniorTable />
         <SeniorPagination
           page={page}
           setPage={setPage}
