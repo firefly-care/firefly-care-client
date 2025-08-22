@@ -37,6 +37,7 @@ export const CareItemContainer = styled.div<{
   background: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.gray[100]};
   position: relative;
+  cursor: pointer;
 
   &::before {
     content: "";

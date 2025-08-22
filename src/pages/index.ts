@@ -6,3 +6,4 @@ export * from "./senior-detail";
 export * from "./senior";
 export * from "./system";
 export * from "./care-post";
+export * from "./care-view";
