@@ -7,7 +7,7 @@ export type Column<T> = {
   id: string;
   header: React.ReactNode;
   width?: number;
-  accessor?: (row: T, index: number) => React.ReactNode; // 셀 렌더러
+  accessor?: (row: T, index: number) => React.ReactNode;
 };
 
 export type ColumnGroup<T> = {
@@ -66,7 +66,6 @@ export function DataTable<T>({
       <S.TableWrapper>
         <S.StyledTable $compact={compact} $zebra={zebra}>
           <thead>
-            {/* 1행: 일반 컬럼(rowSpan=2) + 그룹 헤더(colSpan=서브수) */}
             <tr>
               {columns.map((c) =>
                 isGroup<T>(c) ? (
@@ -90,8 +89,6 @@ export function DataTable<T>({
                 )
               )}
             </tr>
-
-            {/* 2행: 그룹의 서브헤더만 */}
             {hasGroup && (
               <tr>
                 {columns.flatMap((c) =>
