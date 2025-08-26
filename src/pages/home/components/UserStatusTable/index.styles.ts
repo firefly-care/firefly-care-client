@@ -28,9 +28,6 @@ export const Thead = styled.thead`
   z-index: 1;
   th {
     padding: 12px;
-    border: 1px solid ${({ theme }) => theme.colors.gray[900]};
-    border-left: none;
-    border-right: none;
     text-align: center;
     ${({ theme }) => theme.fonts.Body2B}
     white-space: nowrap;

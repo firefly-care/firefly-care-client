@@ -20,10 +20,10 @@ export const router = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "senior", element: <Senior /> },
       { path: "senior/:seniorId", element: <SeniorDetail /> },
-      { path: "system", element: <System /> },
+      // { path: "system", element: <System /> },
       { path: "care", element: <Care /> },
-      { path: "manager", element: <Manager /> },
-      { path: "care-post", element: <CarePost />},
+      // { path: "manager", element: <Manager /> },
+      { path: "care-post", element: <CarePost /> },
     ],
   },
 ]);

@@ -54,6 +54,9 @@ export const CenterText = styled.text`
 `;
 
 export const LabelText = styled.text`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   ${({ theme }) => theme.fonts.Button1}
   .big {
     ${({ theme }) => theme.fonts.Head1}
