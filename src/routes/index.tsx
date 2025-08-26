@@ -4,9 +4,9 @@ import {
   Home,
   Login,
   Senior,
-  System,
+  // System,
+  // Manager,
   Care,
-  Manager,
   SeniorDetail,
   CarePost,
 } from "@pages/index";
