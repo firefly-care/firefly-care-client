@@ -14,7 +14,8 @@ export const LoginContainer = styled.div`
   margin: 0 auto;
   padding: 40px;
   border-radius: 16px;
-  border: 1px solid ${({ theme }) => theme.colors.gray[100]};
+  background-color: ${({ theme }) => theme.colors.orange[50]};
+  border: 1px solid ${({ theme }) => theme.colors.orange[200]};
 `;
 
 export const LoginHeader = styled.div`
