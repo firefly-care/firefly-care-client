@@ -35,7 +35,6 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px;
   gap: 20px;
   margin-bottom: 20px;
 `;

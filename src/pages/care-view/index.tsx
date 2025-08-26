@@ -22,7 +22,7 @@ export const CareView = () => {
     tab: state.tab,
     targetValue: (
       <>
-        박주형 <S.SmallBtn>선택</S.SmallBtn>
+        박주형 {isEditing && <S.SmallBtn>선택</S.SmallBtn>}
       </>
     ),
     tabToTitle: TAB_TO_TITLE,
@@ -37,10 +37,10 @@ export const CareView = () => {
       <Topbar title="돌봄 정보" />
       <S.ContentContainer>
         <S.ButtonWrapper>
-        <OutlineButton colorType="black">
-          <Print />인쇄
-        </OutlineButton>
-      </S.ButtonWrapper>
+          <OutlineButton colorType="black">
+            <Print />인쇄
+          </OutlineButton>
+        </S.ButtonWrapper>
         <S.Card>
           <InfoTable
             infoTableData={infoTableData}
@@ -56,12 +56,12 @@ export const CareView = () => {
             absent={state.absent}
             setAbsent={state.setAbsent}
             call={state.call}
-            setCall={state.setCall}
+            setCall={state.call}
             isEditing={isEditing}
           />
           <ActivityLog isEditing={isEditing} />
         </S.Card>
-        <S.ButtonWrapper>
+        <S.ButtonWrapper style={{ marginTop: 16}}>
           <YellowButton onClick={handleEdit}>
             {isEditing ? "저장" : "수정"}
           </YellowButton>

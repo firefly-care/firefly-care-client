@@ -9,18 +9,12 @@ interface InfoTableProps {
   isEditing?: boolean;
 }
 
-export const InfoTable = ({ infoTableData, tab, isEditing }: InfoTableProps) => {
+export const InfoTable = ({ infoTableData, tab }: InfoTableProps) => {
   const [tableData, setTableData] = useState(infoTableData);
 
   useEffect(() => {
     setTableData(infoTableData);
   }, [infoTableData]);
-
-  const handleInputChange = (rowIndex: number, cellIndex: number, value: string) => {
-    const updatedTableData = [...tableData];
-    updatedTableData[rowIndex].cells[cellIndex].value = value;
-    setTableData(updatedTableData);
-  };
 
   return (
     <>
@@ -37,15 +31,7 @@ export const InfoTable = ({ infoTableData, tab, isEditing }: InfoTableProps) => 
                     <span className="label">{cell.label}</span>
                   </S.TD>
                   <S.TD className="value" colSpan={cell.colSpan}>
-                    {isEditing && !['돌봄 내역', '대상자'].includes(cell.label) ? (
-                      <input
-                        type="text"
-                        value={cell.value as string}
-                        onChange={(e) => handleInputChange(rowIndex, cellIndex, e.target.value)}
-                      />
-                    ) : (
-                      cell.value
-                    )}
+                      {cell.value}
                   </S.TD>
                 </React.Fragment>
               ))}

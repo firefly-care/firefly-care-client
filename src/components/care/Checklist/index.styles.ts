@@ -20,20 +20,42 @@ export const ChecklistTable = styled.table`
 
 export const RadioGroup = styled.div<{ $disabled?: boolean }>`
   display: inline-flex;
-  gap: 14px;
+  gap: 20px;
   align-items: center;
   opacity: ${({ $disabled }) => ($disabled ? 0.45 : 1)};
-  pointer-events: ${({ $disabled }) => ($disabled ? 'none' : 'auto')};
+  pointer-events: ${({ $disabled }) => ($disabled ? "none" : "auto")};
 
   input {
     vertical-align: middle;
-  }
-  label {
+    appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 2px solid ${({ theme }) => theme.colors.gray[300]};
+    border-radius: 50%;
+    background-color: ${({ theme }) => theme.colors.white};
     cursor: pointer;
+    position: relative;
   }
 
-  input[type='radio']:checked {
-    accent-color: ${({ theme }) => theme.colors.orange[500]};
+  input[type="radio"]:checked {
+    border-color: ${({ theme }) => theme.colors.orange[500]};
+    background-color: ${({ theme }) => theme.colors.white};
+  }
+
+  input[type="radio"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 7px;
+    height: 7px;
+    background-color: ${({ theme }) => theme.colors.orange[500]};
+    border-radius: 50%; 
+  }
+
+  label {
+    cursor: pointer;
   }
 `;
 
