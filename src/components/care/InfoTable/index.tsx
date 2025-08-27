@@ -6,7 +6,6 @@ import * as S from './index.styles';
 interface InfoTableProps {
   infoTableData: InfoRow[];
   tab: 'visit' | 'call' | 'emergency';
-  isEditing?: boolean;
 }
 
 export const InfoTable = ({ infoTableData, tab }: InfoTableProps) => {

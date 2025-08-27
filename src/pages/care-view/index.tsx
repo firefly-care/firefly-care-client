@@ -68,7 +68,7 @@ export const CareView = () => {
           />
           <ActivityLog isEditing={isEditing} />
         </S.Card>
-        <S.ButtonWrapper style={{ marginTop: 16}}>
+        <S.ButtonWrapper style={{ marginTop: 16 }}>
           <YellowButton onClick={handleEdit}>
             {isEditing ? "저장" : "수정"}
           </YellowButton>

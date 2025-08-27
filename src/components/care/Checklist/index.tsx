@@ -6,7 +6,7 @@ import {
   CALL_CHECKLIST,
   PRESENT_ABSENT_CHECKLIST,
 } from "@/pages/care-post/constants";
-import type { Ternary, Binary, PresentKeys, AbsentKeys } from "@/pages/care-post/types";
+import type { Ternary, Binary, PresentKeys, AbsentKeys, CallKeys } from "@/pages/care-post/types";
 import type { CareType, CareResultType } from "@/types/care";
 
 interface ChecklistProps {
@@ -19,8 +19,8 @@ interface ChecklistProps {
   >;
   absent: Record<AbsentKeys, Binary>;
   setAbsent: React.Dispatch<React.SetStateAction<Record<AbsentKeys, Binary>>>;
-  call: Record<PresentKeys, Ternary>;
-  setCall: React.Dispatch<React.SetStateAction<Record<PresentKeys, Ternary>>>;
+  call: Record<CallKeys, Ternary>;
+  setCall: React.Dispatch<React.SetStateAction<Record<CallKeys, Ternary>>>;
   isEditing: boolean; // isEditing 다시 추가
 }
 

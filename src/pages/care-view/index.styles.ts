@@ -47,15 +47,9 @@ export const ContentContainer = styled.div`
   align-items: center;
 `;
 
-
-
-
-
-
-
 export const TableWrapper = styled.div`
   overflow-x: auto;
-  overflow-y: auto;;
+  overflow-y: auto;
   width: 100%;
 `;
 
