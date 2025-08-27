@@ -14,7 +14,7 @@ export const Login = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      await login(id);
+      await login(id, password);
       navigate("/");
     } catch (err) {
       console.error(err);

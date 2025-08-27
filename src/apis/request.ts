@@ -1,5 +1,3 @@
-import axios from "axios";
-
 import type {
   AxiosInstance,
   AxiosRequestConfig,
@@ -8,6 +6,7 @@ import type {
   AxiosError,
   InternalAxiosRequestConfig,
 } from "axios";
+import { handleApiError } from "./errors";
 
 // 백엔드 response 형식 맞춰서 변환
 interface ApiSuccess<T> {
@@ -29,7 +28,7 @@ export const sendRequest = async <T = unknown, D = unknown>(
   url: string,
   data?: D,
   headers?: Record<string, string>
-): Promise<ApiResponse<T>> => {
+): Promise<T> => {
   try {
     const config: AxiosRequestConfig = {
       method,
@@ -42,21 +41,15 @@ export const sendRequest = async <T = unknown, D = unknown>(
       config
     );
 
-    const responseData = response.data;
-    console.log(`✅ ${url} [${method}] Success:`, responseData);
-
-    return responseData;
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      console.error(
-        `❌ ${url} [${method}] Error:`,
-        error.response?.data || error.message
-      );
-      throw error; // 원래 AxiosError를 그대로 던짐
+    if ("data" in response.data) {
+      console.log(`✅ ${url} [${method}] Success:`, response.data.data);
+      return response.data.data;
     }
 
-    console.error(`❌ ${url} [${method}] Unknown error:`, error);
-    throw new Error("예상치 못한 오류가 발생했습니다.");
+    throw new Error(response.data.message ?? "요청 실패");
+  } catch (error: unknown) {
+    handleApiError(error);
+    return undefined as never;
   }
 };
 

@@ -6,14 +6,11 @@ export const useLogin = () => {
     mutationFn: LoginAPI,
   });
 
-  const login = async (id: string) => {
-    const res = await mutateAsync({ id });
-
-    if ("data" in res) {
-      const accessToken = res.data;
-      localStorage.setItem("accessToken", accessToken);
-      return accessToken;
-    }
+  const login = async (id: string, password: string) => {
+    const data = await mutateAsync({ id, password });
+    const accessToken = data.accessToken;
+    localStorage.setItem("accessToken", accessToken);
+    return accessToken;
   };
 
   return { login, isPending };
