@@ -1,16 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const BottomArea = styled.div`
-  position: relative;
-  width: 100%;
-  height: 48px;
-  margin-top: 18px;
-`;
-
 export const PaginationBar = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
   height: 36px;
@@ -76,22 +66,4 @@ export const PagerArrow = styled.button<{ disabled?: boolean }>`
       : `
     &:hover { background: ${theme.colors.gray[50]}; }
   `}
-`;
-
-export const RegisterBtn = styled.button`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  background: ${({ theme }) => theme.colors.orange[500]};
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 8px 20px;
-  ${({ theme }) => theme.fonts.Button1};
-  cursor: pointer;
-  transition: background 0.15s;
-  &:hover {
-    background: ${({ theme }) => theme.colors.orange[600]};
-  }
 `;

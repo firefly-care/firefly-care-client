@@ -109,7 +109,7 @@ export const InputWrap = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   border: 1px solid ${({ theme }) => theme.colors.gray[400]};
   border-radius: 4px;
   ${({ theme }) => theme.fonts.Button2};
