@@ -22,30 +22,23 @@ export const ColContainer = styled.div`
 `;
 
 export const RowContainer = styled.div`
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  min-height: 0;
+  display: grid;
+  gap: 12px;
   width: 100%;
-  overflow: hidden;
-`;
-
-export const MapContainer = styled.div`
-  background-color: ${({ theme }) => theme.colors.gray[50]};
-  height: 100%;
-  width: 350px;
-  flex-basis: auto;
+  min-height: 0;
+  grid-template-columns: 1fr;
 `;
 
 export const DongInfoList = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 10px;
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  height: 100%;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  max-height: 720px;
+  overflow: auto;
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const DongInfoBox = styled.div`
@@ -87,7 +80,9 @@ export const DongPopulation = styled.span`
 `;
 
 export const HouseholeContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
   gap: 16px;
   width: 100%;
 `;
@@ -108,12 +103,14 @@ export const Househole = styled.div`
 export const HouseholeTitle = styled.span`
   ${({ theme }) => theme.fonts.Body1B};
   color: ${({ theme }) => theme.colors.black};
+  white-space: nowrap;
 `;
 
 export const HouseholeNumber = styled.span`
   ${({ theme }) => theme.fonts.Head1}
   color: ${({ theme }) => theme.colors.orange[700]};
   label {
+    white-space: nowrap;
     ${({ theme }) => theme.fonts.Button1};
     color: ${({ theme }) => theme.colors.black};
   }

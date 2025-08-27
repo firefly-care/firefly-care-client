@@ -1,7 +1,6 @@
 import { BoxContainer } from "../BoxContainer";
 import * as S from "./index.styles";
 import { regionPeopleData } from "../../datas";
-import type { RegionPeopleType } from "../../types";
 
 export const SeniorStatusSection = () => {
   return (
@@ -9,14 +8,9 @@ export const SeniorStatusSection = () => {
       <S.Container>
         <S.ColContainer>
           <S.RowContainer>
-            <S.MapContainer />
             <S.DongInfoList>
-              {regionPeopleData.map((item: RegionPeopleType) => (
-                <DongInfo
-                  key={item.region}
-                  dongName={item.region}
-                  number={item.count}
-                />
+              {regionPeopleData.slice(0, 10).map((item) => (
+                <DongInfo dongName={item.region} number={item.count} />
               ))}
             </S.DongInfoList>
           </S.RowContainer>
