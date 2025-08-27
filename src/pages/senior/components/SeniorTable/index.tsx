@@ -7,15 +7,15 @@ import { ExcelDownloadButton } from "@components/ExcelDownloadButton";
 import Sort from "@assets/icons/common/sort.svg?react";
 import BulbOn from "@assets/icons/common/bulb_on.svg?react";
 import BulbOff from "@assets/icons/common/bulb_off.svg?react";
-import { seniorTableData } from "../../datas";
 import type { SeniorItemType } from "../../types";
-import { ABNORMAL_SIGN_TYPE_LABELS } from "@/pages/home/constants";
+import { SIGN_TYPE_LABELS } from "@/constants/sign";
 
 type SeniorTableProps = {
+  data: SeniorItemType[];
   onRowClick?: (row: SeniorItemType) => void;
 };
 
-export function SeniorTable({ onRowClick }: SeniorTableProps) {
+export function SeniorTable({ data, onRowClick }: SeniorTableProps) {
   const baseCols: Column<SeniorItemType>[] = [
     {
       id: "no",
@@ -135,13 +135,13 @@ export function SeniorTable({ onRowClick }: SeniorTableProps) {
       id: "lastActive",
       header: "마지막 활동 시간",
       width: 120,
-      accessor: (r) => r.lastActive,
+      accessor: (r) => r.lastActive + "시간 전",
     },
     {
       id: "result",
       header: "이상 징후",
       width: 120,
-      accessor: (r) => ABNORMAL_SIGN_TYPE_LABELS[r.anomaly],
+      accessor: (r) => SIGN_TYPE_LABELS[r.anomaly],
     },
   ];
 
@@ -167,11 +167,11 @@ export function SeniorTable({ onRowClick }: SeniorTableProps) {
 
   return (
     <DataTable<SeniorItemType>
-      data={seniorTableData}
+      data={data}
       columns={columns}
-      getRowKey={(r) => r.id}
+      getRowKey={(r) => r.name}
       onRowClick={onRowClick}
-      topLeft={<span>전체 {seniorTableData.length}건</span>}
+      topLeft={<span>전체 {data.length}건</span>}
       topRight={
         <>
           <ExcelDownloadButton text="엑셀 다운로드" onClick={() => {}} />

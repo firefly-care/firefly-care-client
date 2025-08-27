@@ -1,24 +1,23 @@
-import axios from "axios";
-
 import type {
   AxiosInstance,
   AxiosRequestConfig,
   Method,
   AxiosResponse,
+  AxiosError,
+  InternalAxiosRequestConfig,
 } from "axios";
+import { handleApiError } from "./errors";
 
 // 백엔드 response 형식 맞춰서 변환
 interface ApiSuccess<T> {
-  code: string;
+  status: number;
   message: string;
-  result: T;
-  success: true;
+  data: T;
 }
 
 interface ApiFailure {
-  code: string;
+  status: number;
   message: string;
-  success: false;
 }
 
 export type ApiResponse<T> = ApiSuccess<T> | ApiFailure;
@@ -29,7 +28,7 @@ export const sendRequest = async <T = unknown, D = unknown>(
   url: string,
   data?: D,
   headers?: Record<string, string>
-): Promise<ApiResponse<T>> => {
+): Promise<T> => {
   try {
     const config: AxiosRequestConfig = {
       method,
@@ -42,21 +41,15 @@ export const sendRequest = async <T = unknown, D = unknown>(
       config
     );
 
-    const responseData = response.data;
-    // console.log(`✅ ${url} [${method}] Success:`, responseData);
-
-    return responseData;
-  } catch (error: unknown) {
-    if (axios.isAxiosError(error)) {
-      console.error(
-        `❌ ${url} [${method}] Error:`,
-        error.response?.data || error.message
-      );
-      throw error; // 원래 AxiosError를 그대로 던짐
+    if ("data" in response.data) {
+      console.log(`✅ ${url} [${method}] Success:`, response.data.data);
+      return response.data.data;
     }
 
-    console.error(`❌ ${url} [${method}] Unknown error:`, error);
-    throw new Error("예상치 못한 오류가 발생했습니다.");
+    throw new Error(response.data.message ?? "요청 실패");
+  } catch (error: unknown) {
+    handleApiError(error);
+    return undefined as never;
   }
 };
 
@@ -69,77 +62,55 @@ export const createUrl = (
   return `${path}${query ? `?${query}` : ""}`;
 };
 
-// 인터셉터 추구 구현
-// export const applyInterceptors = (instance: AxiosInstance): void => {
-//   instance.interceptors.request.use(
-//     (config: InternalAxiosRequestConfig) => {
-//       const token = localStorage.getItem("accessToken");
+export const applyInterceptors = (instance: AxiosInstance): void => {
+  instance.interceptors.request.use(
+    (config: InternalAxiosRequestConfig) => {
+      const token = localStorage.getItem("accessToken");
 
-//       // 로그인 전에는 인터셉터 제외
-//       const excludedPaths = ["/login"];
+      // 로그인 전에는 인터셉터 제외
+      const excludedPaths = ["/account/login"];
 
-//       const isExcluded = excludedPaths.some((path) =>
-//         config.url?.includes(path)
-//       );
+      const isExcluded = excludedPaths.some((path) =>
+        config.url?.includes(path)
+      );
 
-//       if (isExcluded) return config;
+      if (isExcluded) return config;
 
-//       if (token) {
-//         config.headers.set("Authorization", `Bearer ${token}`);
-//         return config;
-//       }
-//       return config;
-//     },
-//     (error) => {
-//       console.error("🚨 Request Interceptor Error:", error);
-//       return Promise.reject(error);
-//     }
-//   );
+      if (token) {
+        config.headers.set("Authorization", `Bearer ${token}`);
+        return config;
+      }
+      return config;
+    },
+    (error) => {
+      console.error("🚨 Request Interceptor Error:", error);
+      return Promise.reject(error);
+    }
+  );
 
-//   instance.interceptors.response.use(
-//     (response) => response,
-//     async (error) => {
-//       const originalRequest = error.config;
+  instance.interceptors.response.use(
+    (response) => response,
+    async (error: AxiosError) => {
+      const status = error.response?.status;
+      const url = error.config?.url;
 
-//       if (
-//         (error.response?.status === 401 || error.response?.status === 403) &&
-//         !originalRequest._retry &&
-//         localStorage.getItem("refreshToken")
-//       ) {
-//         originalRequest._retry = true;
+      // 공통 로깅만 수행 (재발급 로직 제거)
+      if (status) {
+        console.error(
+          `❌ Response Error [${status}] ${url ?? ""}:`,
+          error.response?.data ?? error.message
+        );
+      } else {
+        console.error("❌ Response Error (no status):", error.message);
+      }
 
-//         try {
-//           const refreshToken = localStorage.getItem("refreshToken");
+      if (status === 401 || status === 403) {
+        localStorage.removeItem("accessToken");
+        localStorage.removeItem("refreshToken");
+        window.location.replace("/login");
+      }
 
-//           const res = await axios.post(
-//             `${import.meta.env.VITE_BASE_URL}/api/user/refresh`,
-//             {},
-//             {
-//               headers: {
-//                 Authorization: `Bearer ${refreshToken}`,
-//               },
-//             }
-//           );
-
-//           const newAccessToken = res.data.result.accessToken;
-//           useUserStore.getState().setAccessToken(newAccessToken);
-
-//           originalRequest.headers = {
-//             ...originalRequest.headers,
-//             Authorization: `Bearer ${newAccessToken}`,
-//           };
-
-//           return instance(originalRequest);
-//         } catch (refreshError) {
-//           console.error("🔁 AccessToken 갱신 실패", refreshError);
-
-//           useUserStore.getState().logout?.();
-//           window.location.replace("/login");
-//           return Promise.reject(refreshError);
-//         }
-//       }
-
-//       return Promise.reject(error);
-//     }
-//   );
-// };
+      return Promise.reject(error);
+    }
+  );
+};

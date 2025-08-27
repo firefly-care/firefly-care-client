@@ -1,5 +1,5 @@
 import axios from "axios";
-// import { applyInterceptors } from "./request";
+import { applyInterceptors } from "./request";
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 
@@ -7,10 +7,16 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const defaultInstance = axios.create({
   baseURL: BASE_URL,
 });
+applyInterceptors(defaultInstance);
 
 // care section
 const careInstance = axios.create(defaultInstance.defaults);
 careInstance.defaults.baseURL += "/care";
-// applyInterceptors(careInstance);
+applyInterceptors(careInstance);
 
-export { defaultInstance, careInstance };
+// senior section
+const seniorInstance = axios.create(defaultInstance.defaults);
+seniorInstance.defaults.baseURL += "/senior";
+applyInterceptors(seniorInstance);
+
+export { defaultInstance, careInstance, seniorInstance };
