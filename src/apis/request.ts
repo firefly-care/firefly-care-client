@@ -62,7 +62,6 @@ export const createUrl = (
   return `${path}${query ? `?${query}` : ""}`;
 };
 
-// 인터셉터 추구 구현
 export const applyInterceptors = (instance: AxiosInstance): void => {
   instance.interceptors.request.use(
     (config: InternalAxiosRequestConfig) => {
