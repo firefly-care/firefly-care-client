@@ -15,7 +15,7 @@ export default function Layout() {
   return (
     <S.AppContainer>
       <S.AppWrapper>
-        <Sidebar />
+        {isHeaderVisible && <Sidebar />}
         <S.AppMain noHeader={!isHeaderVisible}>
           {isHeaderVisible && <Header />}
           <Outlet />

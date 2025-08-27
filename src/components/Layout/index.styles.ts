@@ -29,7 +29,7 @@ export const AppMain = styled.main<AppMainProps>`
   min-height: 0;
   height: 100%;
   overflow-y: auto;
-  padding-top: 75px;
+  padding-top: ${({ noHeader }) => (noHeader ? "0px" : "75px")};
   width: 100%;
   display: flex;
   flex-direction: column;

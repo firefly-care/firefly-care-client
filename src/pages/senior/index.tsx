@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { useSeniorList } from "./hooks/useSeniorList";
+import { useSeniorStore } from "@/stores/senior";
 import * as S from "./index.styles";
 import {
   SeniorSearchFilter,
@@ -11,6 +13,10 @@ import { YellowButton } from "@/components/Button/YellowButton";
 export const Senior = () => {
   const [page, setPage] = useState(1);
   const totalPages = 5;
+
+  useSeniorList();
+
+  const seniorList = useSeniorStore((state) => state.seniorList);
 
   return (
     <S.Wrapper>

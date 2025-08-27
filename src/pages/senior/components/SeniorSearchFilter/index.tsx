@@ -19,7 +19,7 @@ export const SeniorSearchFilter = () => {
       <SearchForm.FilterSection label="서비스 구분">
         <SearchForm.SelectFilter<"정상" | "서비스 취소" | "전체">
           currentSelected={isService}
-          options={["정상", "서비스 취소", "전체"]}
+          options={["정상", "서비스 취소"]}
           onChange={setIsService}
         />
       </SearchForm.FilterSection>

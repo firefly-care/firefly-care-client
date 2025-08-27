@@ -51,10 +51,14 @@ const makeActiveShape =
           textAnchor="middle"
           dominantBaseline="middle"
         >
-          <tspan x={cx} dy="-1.0em">
-            {GRADE_TYPE_LABELS[label]}
-          </tspan>
-          <tspan className="big" x={cx} dy="1.0em">{`${value ?? 0}명`}</tspan>
+          <>
+            <tspan x={cx} dy="-1.0em">
+              {GRADE_TYPE_LABELS[label]}
+            </tspan>
+            <tspan className="big" x={cx} dy="1.0em">
+              {`${value ?? 0}명`}
+            </tspan>
+          </>
         </S.LabelText>
       </>
     );
@@ -65,16 +69,19 @@ export const CircleChart = () => {
   const [activeIndex, setActiveIndex] = useState<number>(-1);
   const total = useMemo(() => data.reduce((sum, d) => sum + d.value, 0), []);
 
-  const onPieEnter = (_: unknown, index: number) => {
-    setActiveIndex(index);
+  const onChartLeave = () => {
+    setActiveIndex(-1);
   };
-  const onPieLeave = () => setActiveIndex(-1);
+
+  const onSliceEnter = (_: unknown, idx: number) => {
+    setActiveIndex(idx);
+  };
 
   const activeShape = makeActiveShape(theme);
 
   return (
     <S.Container>
-      <PieChart width={200} height={200} onMouseLeave={onPieLeave}>
+      <PieChart width={200} height={200} onMouseLeave={onChartLeave}>
         <Pie
           data={data}
           cx="50%"
@@ -84,7 +91,8 @@ export const CircleChart = () => {
           dataKey="value"
           activeIndex={activeIndex}
           activeShape={activeShape}
-          onMouseEnter={onPieEnter}
+          onMouseEnter={onSliceEnter}
+          isAnimationActive={false}
         >
           {data.map((slice, index) => (
             <Cell
@@ -92,25 +100,25 @@ export const CircleChart = () => {
               fill={getSemanticColor(theme, slice.name)}
             />
           ))}
-
           <Label
             position="center"
-            content={(props) => {
-              const vb = props.viewBox as
-                | { cx?: number; cy?: number }
-                | undefined;
-              if (!vb?.cx || !vb?.cy) return null;
+            content={() => {
               if (activeIndex !== -1) return null;
 
               return (
-                <S.CenterText
-                  x={vb.cx}
-                  y={vb.cy}
+                <S.LabelText
+                  x="50%"
+                  y="50%"
                   textAnchor="middle"
                   dominantBaseline="middle"
                 >
-                  {total}명
-                </S.CenterText>
+                  <tspan x="50%" dy="-1.0em">
+                    전체
+                  </tspan>
+                  <tspan x="50%" className="big" dy="1.0em">
+                    {`${total}명`}
+                  </tspan>
+                </S.LabelText>
               );
             }}
           />
