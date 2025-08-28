@@ -5,8 +5,8 @@ import {
   BINARY_OPTIONS,
   CALL_CHECKLIST,
   PRESENT_ABSENT_CHECKLIST,
-} from "../../constants";
-import type { Ternary, Binary, PresentKeys, AbsentKeys } from "../../types";
+} from "@/pages/care-post/constants";
+import type { Ternary, Binary, PresentKeys, AbsentKeys } from "@/pages/care-post/types";
 import type { CareType, CareResultType } from "@/types/care";
 
 interface ChecklistProps {
@@ -21,6 +21,7 @@ interface ChecklistProps {
   setAbsent: React.Dispatch<React.SetStateAction<Record<AbsentKeys, Binary>>>;
   call: Record<PresentKeys, Ternary>;
   setCall: React.Dispatch<React.SetStateAction<Record<PresentKeys, Ternary>>>;
+  isEditing: boolean;
 }
 
 export const Checklist = ({
@@ -33,6 +34,7 @@ export const Checklist = ({
   setAbsent,
   call,
   setCall,
+  isEditing,
 }: ChecklistProps) => {
   return (
     <>
@@ -56,12 +58,13 @@ export const Checklist = ({
                 <S.TR key={key}>
                   <S.TD className="label">{label}</S.TD>
                   <S.TD className="value" colSpan={3}>
-                    <S.RadioGroup>
+                    <S.RadioGroup $disabled={!isEditing}>
                       {TERNARY_OPTIONS.map((v) => (
                         <label key={v}>
                           <input
                             type="radio"
                             name={`call_${key}`}
+                            disabled={!isEditing}
                             checked={call[key] === v}
                             onChange={() =>
                               setCall((s) => ({ ...s, [key]: v }))
@@ -81,26 +84,32 @@ export const Checklist = ({
             <>
               <S.TR>
                 <S.TD colSpan={2} className="radio-container">
-                  <label>
-                    <input
-                      type="radio"
-                      name="resultType"
-                      checked={resultType === "confirmed"}
-                      onChange={() => setResultType("confirmed")}
-                    />{" "}
-                    대상자 확인
-                  </label>
+                  <S.RadioGroup>
+                    <label>
+                      <input
+                        type="radio"
+                        name="resultType"
+                        disabled={!isEditing}
+                        checked={resultType === "confirmed"}
+                        onChange={() => setResultType("confirmed")}
+                      />{" "}
+                      대상자 확인
+                    </label>
+                  </S.RadioGroup>
                 </S.TD>
                 <S.TD colSpan={2} className="radio-container">
-                  <label>
-                    <input
-                      type="radio"
-                      name="resultType"
-                      checked={resultType === "absent"}
-                      onChange={() => setResultType("absent")}
-                    />{" "}
-                    대상자 부재
-                  </label>
+                  <S.RadioGroup>
+                    <label>
+                      <input
+                        type="radio"
+                        name="resultType"
+                        disabled={!isEditing}
+                        checked={resultType === "absent"}
+                        onChange={() => setResultType("absent")}
+                      />{" "}
+                      대상자 부재
+                    </label>
+                  </S.RadioGroup>
                 </S.TD>
               </S.TR>
 
@@ -108,13 +117,13 @@ export const Checklist = ({
                 <S.TR key={p.key}>
                   <S.TD className="label">{p.label}</S.TD>
                   <S.TD className="value">
-                    <S.RadioGroup $disabled={resultType !== "confirmed"}>
+                    <S.RadioGroup $disabled={!isEditing || resultType !== "confirmed"}>
                       {TERNARY_OPTIONS.map((v) => (
                         <label key={v}>
                           <input
                             type="radio"
                             name={`present_${p.key}`}
-                            disabled={resultType !== "confirmed"}
+                            disabled={!isEditing || resultType !== "confirmed"}
                             checked={present[p.key] === v}
                             onChange={() =>
                               setPresent((s) => ({ ...s, [p.key]: v }))
@@ -128,13 +137,13 @@ export const Checklist = ({
 
                   <S.TD className="label">{a.label}</S.TD>
                   <S.TD className="value">
-                    <S.RadioGroup $disabled={resultType !== "absent"}>
+                    <S.RadioGroup $disabled={!isEditing || resultType !== "absent"}>
                       {BINARY_OPTIONS.map((v) => (
                         <label key={v}>
                           <input
                             type="radio"
                             name={`absent_${a.key}`}
-                            disabled={resultType !== "absent"}
+                            disabled={!isEditing || resultType !== "absent"}
                             checked={absent[a.key] === v}
                             onChange={() =>
                               setAbsent((s) => ({ ...s, [a.key]: v }))

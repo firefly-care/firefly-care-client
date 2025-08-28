@@ -1,4 +1,4 @@
-import { WhiteButton } from "@components/Button/WhiteButton";
+import { OutlineButton } from "@components/Button/OutlineButton";
 import TrashIcon from "@assets/icons/common/trash.svg?react";
 import type { CareType } from "@/types/care";
 import * as S from "./index.styles";
@@ -27,9 +27,9 @@ export const CarePostHeader = ({
           긴급출동
         </S.Tab>
       </S.Tabs>
-      <WhiteButton icon={<TrashIcon />} onClick={onReset}>
+      <OutlineButton icon={<TrashIcon />} onClick={onReset} colorType="white">
         전체 지우기
-      </WhiteButton>
+      </OutlineButton>
     </S.TopBar>
   );
 };

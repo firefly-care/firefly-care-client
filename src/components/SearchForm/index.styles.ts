@@ -109,7 +109,7 @@ export const InputWrap = styled.div`
 
 export const Input = styled.input`
   width: 100%;
-  padding: 10px;
+  padding: 10px 30px 10px 10px;
   border: 1px solid ${({ theme }) => theme.colors.gray[400]};
   border-radius: 4px;
   ${({ theme }) => theme.fonts.Button2};
@@ -129,26 +129,6 @@ export const SearchIconContainer = styled.span`
   transform: translateY(-50%);
   font-size: 16px;
   color: ${({ theme }) => theme.colors.gray[400]};
-`;
-
-export const BlackButton = styled.button`
-  border-radius: 8px;
-  padding: 10px 20px;
-  gap: 4px;
-  display: flex;
-  border: 1.5px solid ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.fonts.Button1}
-  color: ${({ theme }) => theme.colors.white};
-  background-color: ${({ theme }) => theme.colors.black};
-`;
-
-export const WhiteButton = styled.button`
-  border-radius: 8px;
-  padding: 10px 20px;
-  border: 1.5px solid ${({ theme }) => theme.colors.black};
-  ${({ theme }) => theme.fonts.Button1}
-  color: ${({ theme }) => theme.colors.black};
-  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const ButtonContainer = styled.div`

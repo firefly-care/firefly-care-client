@@ -35,8 +35,8 @@ export const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  margin-top: 16px;
-  margin-bottom: 30px;
+  gap: 20px;
+  margin-bottom: 20px;
 `;
 
 export const ContentContainer = styled.div`
@@ -45,4 +45,55 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+`;
+
+export const TableWrapper = styled.div`
+  overflow-x: auto;
+  overflow-y: auto;
+  width: 100%;
+`;
+
+export const Table = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+`;
+
+export const TH = styled.th`
+  background: #faf6e7;
+  font-weight: 600;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid #e2e3e6;
+`;
+
+export const TD = styled.td`
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #e2e3e6;
+`;
+
+export const PaginationWrapper = styled.div`
+  margin-top: 10px;
+  position: relative;
+`;
+
+export const Pagination = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+`;
+
+export const PageButton = styled.button`
+  background: #f2c94c;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  &:hover {
+    background: #e2b94c;
+  }
 `;

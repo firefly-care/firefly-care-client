@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import * as S from "./index.styles";
 import { careListData } from "../../datas";
 import { CareTypeTag } from "@/components/CareTypeTag";
@@ -18,8 +19,15 @@ export const CareList = () => {
 };
 
 const CareItem = ({ item }: { item: CareItemType }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    console.log("Navigating to", `/care-view/${item.id}`);
+    navigate(`/care-view/${item.id}`);
+  };
+
   return (
-    <S.CareItemContainer $status={item.status}>
+    <S.CareItemContainer onClick={handleClick} $status={item.status}>
       <S.ItemHeader>
         <S.NameNTag>
           <S.Name>{item.name}</S.Name>

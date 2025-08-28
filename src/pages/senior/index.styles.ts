@@ -16,3 +16,17 @@ export const ContentContainer = styled.div`
   flex-direction: column;
   gap: 20px;
 `;
+
+export const BottomArea = styled.div`
+  position: relative;
+  width: 100%;
+  height: 48px;
+  margin-top: 18px;
+`;
+
+export const ButtonContainer = styled.div`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+`;

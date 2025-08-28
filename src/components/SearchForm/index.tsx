@@ -2,6 +2,7 @@ import * as S from "./index.styles";
 import { useState, useRef, useEffect } from "react";
 import SearchIcon from "@assets/icons/common/search.svg?react";
 import SearchWhiteIcon from "@assets/icons/common/search-white.svg?react";
+import { OutlineButton } from "@components/Button/OutlineButton";
 
 type FilterSectionProps = {
   label: string;
@@ -108,19 +109,6 @@ const DateRangePicker = ({
   );
 };
 
-const SearchButton = ({ onClick }: { onClick: () => void }) => {
-  return (
-    <S.BlackButton onClick={onClick}>
-      <SearchWhiteIcon width={18} height={18} />
-      검색
-    </S.BlackButton>
-  );
-};
-
-const ResetButton = ({ onClick }: { onClick: () => void }) => {
-  return <S.WhiteButton onClick={onClick}>초기화</S.WhiteButton>;
-};
-
 const ButtonSet = ({
   handleReset,
   handleSearch,
@@ -130,8 +118,11 @@ const ButtonSet = ({
 }) => {
   return (
     <S.ButtonContainer>
-      <ResetButton onClick={handleReset} />
-      <SearchButton onClick={handleSearch} />
+      <OutlineButton colorType="white" onClick={handleReset}>초기화</OutlineButton>
+      <OutlineButton colorType="black" onClick={handleSearch}>
+        <SearchWhiteIcon width={18} height={18} />
+        검색
+      </OutlineButton>
     </S.ButtonContainer>
   );
 };
@@ -163,8 +154,6 @@ SearchForm.FilterSection = FilterSection;
 SearchForm.SelectFilter = SelectFilter;
 SearchForm.DateRangePicker = DateRangePicker;
 SearchForm.SearchInput = SearchInput;
-SearchForm.SearchButton = SearchButton;
-SearchForm.ResetButton = ResetButton;
 SearchForm.ButtonSet = ButtonSet;
 
 export { SearchForm };

@@ -9,6 +9,7 @@ import {
   Care,
   SeniorDetail,
   CarePost,
+  CareDetail,
 } from "@pages/index";
 
 export const router = createBrowserRouter([
@@ -23,7 +24,8 @@ export const router = createBrowserRouter([
       // { path: "system", element: <System /> },
       { path: "care", element: <Care /> },
       // { path: "manager", element: <Manager /> },
-      { path: "care-post", element: <CarePost /> },
+      { path: "care-post", element: <CarePost />},
+      { path: "care-detail/:careId", element: <CareDetail /> },
     ],
   },
 ]);

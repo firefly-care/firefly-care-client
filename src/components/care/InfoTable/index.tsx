@@ -1,6 +1,6 @@
-import React from 'react';
-import type { InfoRow } from '../../types';
-import { TAB_TO_TITLE } from '../../constants';
+import React, { useState, useEffect } from 'react';
+import type { InfoRow } from '@/pages/care-post/types';
+import { TAB_TO_TITLE } from '@/pages/care-post/constants';
 import * as S from './index.styles';
 
 interface InfoTableProps {
@@ -9,6 +9,12 @@ interface InfoTableProps {
 }
 
 export const InfoTable = ({ infoTableData, tab }: InfoTableProps) => {
+  const [tableData, setTableData] = useState(infoTableData);
+
+  useEffect(() => {
+    setTableData(infoTableData);
+  }, [infoTableData]);
+
   return (
     <>
       <S.SectionHeader>
@@ -16,7 +22,7 @@ export const InfoTable = ({ infoTableData, tab }: InfoTableProps) => {
       </S.SectionHeader>
       <S.InfoTable>
         <tbody>
-          {infoTableData.map((rowData, rowIndex) => (
+          {tableData.map((rowData, rowIndex) => (
             <S.TR key={rowIndex}>
               {rowData.cells.map((cell, cellIndex) => (
                 <React.Fragment key={`${rowIndex}-${cellIndex}`}>
@@ -24,7 +30,7 @@ export const InfoTable = ({ infoTableData, tab }: InfoTableProps) => {
                     <span className="label">{cell.label}</span>
                   </S.TD>
                   <S.TD className="value" colSpan={cell.colSpan}>
-                    {cell.value}
+                      {cell.value}
                   </S.TD>
                 </React.Fragment>
               ))}

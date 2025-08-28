@@ -5,7 +5,7 @@ import {
   InfoTable,
   Checklist,
   ActivityLog,
-} from "./components";
+} from "@components/care";
 import { Topbar } from "@/components/Topbar";
 import { TAB_TO_TITLE } from "./constants";
 import { buildInfoTableData } from "./utils";
@@ -34,7 +34,7 @@ export const CarePost = () => {
           onReset={state.reset}
         />
         <S.Card>
-          <InfoTable infoTableData={infoTableData} tab={state.tab} />
+          <InfoTable infoTableData={infoTableData} tab={state.tab} isEditing />
           <Checklist
             tab={state.tab}
             resultType={state.resultType}
@@ -45,8 +45,9 @@ export const CarePost = () => {
             setAbsent={state.setAbsent}
             call={state.call}
             setCall={state.setCall}
+            isEditing
           />
-          <ActivityLog />
+          <ActivityLog isEditing />
         </S.Card>
         <S.ButtonWrapper>
           <YellowButton>등록</YellowButton>

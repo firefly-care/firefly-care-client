@@ -5,12 +5,16 @@ import { CareTypeTag } from "@components/CareTypeTag"; // 기존에 만든 뱃�
 import { CARE_RESULT_TYPE_LABELS } from "@/constants/care";
 import type { CareItemType } from "../../types";
 import { careListData } from "../../datas";
+import { useNavigate } from "react-router-dom"; 
 
-type CareHistoryTableProps = {
-  onRowClick?: (row: CareItemType) => void;
-};
+export function CareHistoryTable() {
+  const navigate = useNavigate();
 
-export function CareHistoryTable({ onRowClick }: CareHistoryTableProps) {
+  const handleRowClick = (row: CareItemType) => {
+    console.log("Navigating to", `/care-view/${row.id}`);
+    navigate(`/care-view/${row.id}`);
+  };
+
   const columns: Column<CareItemType>[] = [
     {
       id: "no",
@@ -61,7 +65,7 @@ export function CareHistoryTable({ onRowClick }: CareHistoryTableProps) {
       data={careListData}
       columns={columns}
       getRowKey={(r) => r.id}
-      onRowClick={onRowClick}
+      onRowClick={handleRowClick}
       topLeft={<span>전체 {careListData.length}건</span>}
       topRight={
         <>
