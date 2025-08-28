@@ -6,23 +6,17 @@ import { SeniorAdapter } from "@apis/senior/adapters";
 
 export const useSeniorList = () => {
   const setSeniorList = useSeniorStore((s) => s.setSeniorList);
-
-  return useQuery<SeniorItemType[], Error>({
+  const seniorList = useSeniorStore((s) => s.seniorList);
+  return useQuery<SeniorItemType[], Error, SeniorItemType[], ["seniorList"]>({
     queryKey: ["seniorList"],
     queryFn: async () => {
-      const response = await FetchSeniorAPI();
-      if ("data" in response) {
-        const list = SeniorAdapter.adaptList(response.data);
-        setSeniorList(list);
-        return list;
-      }
-
-      setSeniorList([]);
-      throw new Error(response.message);
+      const data = await FetchSeniorAPI();
+      const list = SeniorAdapter.adaptList(data);
+      setSeniorList(list);
+      return seniorList;
     },
     staleTime: 5 * 60 * 1000,
     refetchOnMount: false,
     retry: 1,
-    placeholderData: [],
   });
 };
