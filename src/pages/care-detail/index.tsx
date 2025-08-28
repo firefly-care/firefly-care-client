@@ -18,7 +18,7 @@ import { Pagination } from "@/components/Pagination";
 import { useModal } from "@/hooks/useModal";
 import { Modal } from "@/components/Modal";
 
-export const CareView = () => {
+export const CareDetail = () => {
   const [isEditing, setIsEditing] = useState(false);
   const { isOpen: isModalOpen, openModal, closeModal } = useModal();
   const [page, setPage] = useState(1);
@@ -52,7 +52,6 @@ export const CareView = () => {
           <InfoTable
             infoTableData={infoTableData}
             tab={state.tab}
-            isEditing={isEditing}
           />
           <Checklist
             tab={state.tab}
@@ -63,7 +62,7 @@ export const CareView = () => {
             absent={state.absent}
             setAbsent={state.setAbsent}
             call={state.call}
-            setCall={state.call}
+            setCall={state.setCall}
             isEditing={isEditing}
           />
           <ActivityLog isEditing={isEditing} />
