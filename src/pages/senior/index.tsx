@@ -11,13 +11,10 @@ import { Pagination } from "@/components/Pagination";
 import { YellowButton } from "@/components/Button/YellowButton";
 
 export const Senior = () => {
+  const seniorList = useSeniorStore((state) => state.seniorList);
   const [page, setPage] = useState(1);
   const totalPages = 5;
-
   useSeniorList();
-
-  const seniorList = useSeniorStore((state) => state.seniorList);
-
   return (
     <S.Wrapper>
       <Topbar title="대상자 관리" />
