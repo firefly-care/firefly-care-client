@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+  position: sticky;
+  top: 0;
   width: 100%;
   padding: 12px 16px;
   height: 75px;
@@ -8,8 +10,6 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   flex-shrink: 0;
-  position: absolute;
-  top: 0;
   z-index: 1000;
   background-color: ${({ theme }) => theme.colors.white};
   box-shadow: 0 2px 3px 0 ${({ theme }) => theme.colors.gray[50]};

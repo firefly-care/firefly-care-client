@@ -20,8 +20,9 @@ export const Senior = () => {
       <Topbar title="대상자 관리" />
       <S.ContentContainer>
         <SeniorSearchFilter />
-        <SeniorTable />
+        <SeniorTable data={seniorList} />
         <S.BottomArea>
+          <></>
           <Pagination
             page={page}
             setPage={setPage}

@@ -13,14 +13,18 @@ export default function Layout() {
   );
 
   return (
-    <S.AppContainer>
-      <S.AppWrapper>
-        {isHeaderVisible && <Sidebar />}
-        <S.AppMain noHeader={!isHeaderVisible}>
-          {isHeaderVisible && <Header />}
-          <Outlet />
-        </S.AppMain>
-      </S.AppWrapper>
-    </S.AppContainer>
+    <S.AppWrapper>
+      {isHeaderVisible && (
+        <S.AppContainer>
+          <Sidebar />
+        </S.AppContainer>
+      )}
+      <S.AppMain noHeader={!isHeaderVisible}>
+                  {isHeaderVisible && <Header />}
+          <S.PageContainer>
+            <Outlet />
+          </S.PageContainer>
+      </S.AppMain>
+    </S.AppWrapper>
   );
 }

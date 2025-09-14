@@ -13,7 +13,7 @@ export const useSeniorList = () => {
       const data = await FetchSeniorAPI();
       const list = SeniorAdapter.adaptList(data);
       setSeniorList(list);
-      return seniorList;
+      return list;
     },
     staleTime: 5 * 60 * 1000,
     refetchOnMount: false,

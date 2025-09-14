@@ -18,10 +18,13 @@ export const ContentContainer = styled.div`
 `;
 
 export const BottomArea = styled.div`
+  display: flex;
   position: relative;
   width: 100%;
   height: 48px;
   margin-top: 18px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const ButtonContainer = styled.div`
