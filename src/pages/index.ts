@@ -7,3 +7,4 @@ export * from "./senior";
 export * from "./system";
 export * from "./care-post";
 export * from "./care-detail";
+export * from "./register";
