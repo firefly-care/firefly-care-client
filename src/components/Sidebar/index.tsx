@@ -1,11 +1,12 @@
 import * as S from "./index.styles";
 import MenuIcon from "@assets/icons/common/burger.svg?react";
 import HomeIcon from "@assets/icons/common/home.svg?react";
-// import SystemIcon from "@assets/icons/common/setting.svg?react";
+import SystemIcon from "@assets/icons/common/setting.svg?react";
 // import ManagerIcon from "@assets/icons/common/manager.svg?react";
+import ManagerIcon from "@assets/icons/common/manager.svg?react";
 import TargetIcon from "@assets/icons/common/person.svg?react";
 import PlusIcon from "@assets/icons/common/plus.svg?react";
-import CareIcon from "@assets/icons/common/graph.svg?react";
+// import CareIcon from "@assets/icons/common/graph.svg?react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 interface MenuItemType {
@@ -16,10 +17,11 @@ interface MenuItemType {
 
 const MENU_ITEMS: MenuItemType[] = [
   { icon: HomeIcon, label: "홈", path: "/" },
+  { icon: ManagerIcon, label: "담당자", path: "/manager"},
   { icon: TargetIcon, label: "대상자", path: "/senior" },
-  { icon: CareIcon, label: "돌봄 현황", path: "/care" },
+  // { icon: CareIcon, label: "돌봄 현황", path: "/care" },
   // { icon: ManagerIcon, label: "운영 관리", path: "/manager" },
-  // { icon: SystemIcon, label: "시스템", path: "/system" },
+  { icon: PlusIcon, label: "등록", path: "/register" },
 ];
 
 export default function Sidebar() {
@@ -42,8 +44,8 @@ export default function Sidebar() {
         ))}
       </S.MenuContainer>
       <S.PlusButton onClick={() => navigate("/care-post")}>
-        <PlusIcon width={24} height={24} />
-        <S.PlusLabel>돌봄 등록</S.PlusLabel>
+        <SystemIcon width={24} height={24} />
+        <S.PlusLabel>시스템</S.PlusLabel>
       </S.PlusButton>
     </S.Container>
   );
