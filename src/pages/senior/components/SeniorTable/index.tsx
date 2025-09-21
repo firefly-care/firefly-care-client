@@ -16,6 +16,7 @@ type SeniorTableProps = {
 };
 
 export function SeniorTable({ data, onRowClick }: SeniorTableProps) {
+  console.log("data:", data);
   const baseCols: Column<SeniorItemType>[] = [
     {
       id: "no",
