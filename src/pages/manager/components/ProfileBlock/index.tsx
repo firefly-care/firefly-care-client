@@ -5,12 +5,8 @@ export const ProfileBlock: React.FC = () => {
   return (
     <S.Card>
       <S.SectionTitle>담당자 기본 정보</S.SectionTitle>
-
-      {/* 왼쪽 아바타 + 오른쪽 정보 */}
       <S.ContentGrid>
         <S.Avatar size={120} />
-
-        {/* 라벨/값 두 컬럼 */}
         <S.InfoGrid>
           <S.LabelCol>
             <S.LabelItem>이름</S.LabelItem>
