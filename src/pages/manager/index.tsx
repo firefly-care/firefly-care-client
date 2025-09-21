@@ -14,7 +14,7 @@ export const Manager: React.FC = () => {
   const [selected, setSelected] = useState<string>(MANAGERS[0].id);
 
   const filtered: ManagerType[] = useMemo(
-    () => MANAGERS.filter((m: any) => m.name.toLowerCase().includes(query.toLowerCase())),
+    () => MANAGERS.filter((m: ManagerType) => m.name.toLowerCase().includes(query.toLowerCase())),
     [query]
   );
 
